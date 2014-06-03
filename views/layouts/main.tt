@@ -39,6 +39,11 @@
 		</div>
 
 		<div class="container">
+			<div class="row">
+				<div class="alert alert-dismissable alert-success hide" id="alert-success">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+				</div>
+			</div>
 			<% content %>
 		</div>
 
@@ -49,5 +54,6 @@
 		<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="javascripts/tiny.house.js"></script>
 	</body>
 </html>
