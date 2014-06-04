@@ -10,7 +10,7 @@ get '/' => sub {
 };
 
 post '/register' => sub {
-  return to_json { message => "Registered" }
+  return to_json { success => 1, message => "Registered" }
 };
   
 true;

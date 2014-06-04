@@ -4,9 +4,9 @@
 	<head>
 		<title>Tiny.House</title>
 
-		<link rel="//netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css">
-		<link rel="stylesheet" href="<% request.base %>css/bootstrap.min.css">
-
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+		<link href="<% request.base %>css/bootstrapValidator.min.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="navbar navbar-default">
@@ -41,6 +41,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="alert alert-dismissable alert-success hide" id="alert-success">
+					<span id="success-message"></span>
 					<button type="button" class="close" data-dismiss="alert">×</button>
 				</div>
 			</div>
@@ -54,6 +55,7 @@
 		<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		<script src="javascripts/tiny.house.js"></script>
+		<script src="<% request.base %>javascripts/bootstrapValidator.min.js"></script>
+		<script src="<% request.base %>javascripts/tiny.house.js"></script>
 	</body>
 </html>
