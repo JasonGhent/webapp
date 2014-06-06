@@ -39,8 +39,8 @@
 		</div>
 
 		<div class="container">
-			<div class="row">
-				<div class="alert alert-dismissable alert-success hide" id="alert-success">
+			<div class="row" id="status">
+				<div class="alert alert-dismissable alert-success hide" id="success-alert">
 					<span id="success-message"></span>
 					<button type="button" class="close" data-dismiss="alert">×</button>
 				</div>

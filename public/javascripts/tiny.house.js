@@ -1,8 +1,8 @@
-//valid: 'fa fa-check',
-//invalid: 'fa fa-times',
-//validating: 'fa fa-spin fa-spinner'
-
 $(document).ready(function() {
+        $('#registerModal').on('shown.bs.modal', function () {
+		$('#name').focus();
+	});
+
 	$('#registerForm').bootstrapValidator({
 		message: 'This value is not valid',
 		feedbackIcons: {
@@ -12,10 +12,14 @@ $(document).ready(function() {
 		},
 		submitHandler: function(validator, form, submitButton) {
 			$.post('/register', form.serialize(), function(result) {
+				console.log('response');
 				if (result && result.success)
 				{
-					$('#success-message').text(result.message);
-					$('#alert-success').removeClass('hide');
+					var successNotice = $('#success-alert').clone();
+					successNotice.find('#success-message').text(result.message);
+
+					$('#status').append(successNotice);
+					successNotice.removeClass('hide');
 
 					$('#registerModal').modal('hide');
 					$('#registerForm').bootstrapValidator('resetForm', true);
@@ -45,37 +49,9 @@ $(document).ready(function() {
 						message: 'Please enter a valid email address'
 					}
 				}
-			},
-			password: {
-				validators: {
-					notEmpty: {
-						message: 'The password field is required'
-					},
-					identical: {
-						field: 'confirm',
-						message: 'The password field and confirm field do not match'
-					},
-					stringLength: {
-						min: 6,
-						message: 'Your password must be at least six characters long'
-					}
-				}
-			},
-			confirm: {
-				validators: {
-					notEmpty: {
-						message: 'The confirm field is required'
-					},
-					identical: {
-						field: 'password',
-						message: 'The password field and confirm field do not match'
-					},
-					stringLength: {
-						min: 6,
-						message: 'Your password must be at least six characters long'
-					}
-				}
 			}
 		}
 	});
+
+	console.log('Ready');
 });
