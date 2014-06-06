@@ -10,7 +10,7 @@ get '/' => sub {
 };
 
 post '/register' => sub {
-  return to_json { success => 1, message => "Registered" }
+  return to_json { success => 1, message => "An email address has been sent to you containing a link to register." }
 };
   
 true;
