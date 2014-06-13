@@ -47,6 +47,10 @@ $(document).ready(function() {
 					},
 					emailAddress: {
 						message: 'Please enter a valid email address'
+					},
+					remote: {
+						message: 'That email address is already in use',
+						url: '/check_email_address'
 					}
 				}
 			}
