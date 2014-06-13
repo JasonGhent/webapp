@@ -1,7 +1,11 @@
 package Tiny::House;
 use Dancer ':syntax';
 use Dancer::Plugin::Database;
+
+
+use Data::Entropy::Algorithms qw/rand_bits/;
 use JSON;
+use MIME::Base64 qw/encode_base64url/;
 
 use Data::Dumper;
 
@@ -20,6 +24,24 @@ post '/check_email_address' => sub {
 };
 
 post '/register' => sub {
-	return to_json { success => 1, message => "An email address has been sent to you containing a link to register." }
+	my $errors;
+
+	my $valid = database->quick_count('users', {email => params->{email}}) ? JSON::false : JSON::true; 
+
+	if ($valid)
+	{
+		my $token = encode_base64url(rand_bits(192));
+
+		database->quick_insert('users', {name => params->{name}, email => params->{email}, token => $token});
+
+		# Send Email here
+
+		return to_json { success => 1, message => "An email has been sent containing a link to set your password." }
+	}
+	else
+	{
+		return to_json { success => 0, message => "That email address has already been registered." }
+	}
+	
 };
   

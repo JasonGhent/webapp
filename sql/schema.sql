@@ -1,7 +1,7 @@
 -- tables
 -- Table: attachments
 CREATE TABLE attachments (
-    id int  NOT NULL,
+    id serial  NOT NULL,
     user_id int  NOT NULL,
     revision date  NOT NULL,
     name text  NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE attachments (
 
 -- Table: links
 CREATE TABLE links (
-    id int  NOT NULL,
+    id serial  NOT NULL,
     user_id int  NOT NULL,
     place_id int  NOT NULL,
     revision date  NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE links (
 
 -- Table: places
 CREATE TABLE places (
-    id int  NOT NULL,
+    id serial  NOT NULL,
     user_id int  NOT NULL,
     revision date  NOT NULL,
     type text  NOT NULL,
@@ -36,10 +36,12 @@ CREATE TABLE places (
 );
 
 -- Table: user
-CREATE TABLE user (
-    id int  NOT NULL,
+CREATE TABLE users (
+    id serial  NOT NULL,
+    name text NOT NULL,
     email text  NOT NULL,
-    password text  NOT NULL,
+    password text,
+    token text,
     CONSTRAINT user_pk PRIMARY KEY (id)
 );
 
