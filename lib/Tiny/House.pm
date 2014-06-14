@@ -1,7 +1,7 @@
 package Tiny::House;
 use Dancer ':syntax';
 use Dancer::Plugin::Database;
-
+use Dancer::Plugin::Passphrase;
 
 use Data::Entropy::Algorithms qw/rand_bits/;
 use JSON;
@@ -16,23 +16,40 @@ get '/' => sub {
 };
 
 post '/check_email_address' => sub {
-	my $valid = database->quick_count('users', {email => params->{email}}) ? JSON::false : JSON::true; 
+	my $valid = database->quick_count('users', {email => params->{registerEmail}}) ? JSON::false : JSON::true; 
 
 	debug ("Valid: $valid");
 
 	return to_json { 'valid' => $valid }
 };
 
+post '/change_password' => sub {
+	my $valid = database->quick_count('users', {email => params->{changePasswordEmail}, token => params->{changePasswordToken}});
+	debug "Valid: $valid\n";
+	if ($valid)
+	{
+		my $phrase = passphrase(param(params->{changePasswordPassword}))->generate;
+		
+		database->quick_update('users', {email => params->{changePasswordEmail}, token => params->{changePasswordToken}}, {password => $phrase->rfc2307(), token => ''});
+
+		return to_json { success => 1, message => "Your password has been changed." }
+	}
+	else
+	{
+		return to_json { success => 0, message => "You have an incorrect token or email address specified. Please request to change your password again so we can send you the correct information." }
+	}
+};
+
 post '/register' => sub {
 	my $errors;
 
-	my $valid = database->quick_count('users', {email => params->{email}}) ? JSON::false : JSON::true; 
+	my $available = database->quick_count('users', {email => params->{registerEmail}}) ? JSON::false : JSON::true; 
 
-	if ($valid)
+	if ($available)
 	{
 		my $token = encode_base64url(rand_bits(192));
 
-		database->quick_insert('users', {name => params->{name}, email => params->{email}, token => $token});
+		database->quick_insert('users', {name => params->{registerName}, email => params->{registerEmail}, token => $token});
 
 		# Send Email here
 
