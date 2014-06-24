@@ -35,14 +35,28 @@ CREATE TABLE places (
     CONSTRAINT places_pk PRIMARY KEY (id)
 );
 
--- Table: user
+-- Table: users
 CREATE TABLE users (
     id serial  NOT NULL,
     name text NOT NULL,
     email text  NOT NULL,
     password text,
     token text,
-    CONSTRAINT user_pk PRIMARY KEY (id)
+    CONSTRAINT users_pk PRIMARY KEY (id)
+);
+
+-- Table: roles
+CREATE TABLE roles (
+    id serial NOT NULL,
+    role text NOT NULL,
+    CONSTRAINT roles_pk PRIMARY KEY (id)
+);
+
+-- Table: user_roles
+CREATE TABLE user_roles (
+    user_id integer NOT NULL,
+    role_id integer NOT NULL,
+    CONSTRAINT user_roles_pl PRIMARY KEY (user_id, role_id)
 );
 
 -- End of file.
