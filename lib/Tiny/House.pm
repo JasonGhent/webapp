@@ -12,53 +12,60 @@ use Data::Dumper;
 our $VERSION = '0.1';
 
 get '/' => sub {
-	template 'index';
+	template 'index' => {alert => {success => params->{'alertSuccess'}, message => params->{'alertMessage'}}};
 };
 
 post '/check_email_address' => sub {
-	my $valid = database->quick_count('users', {email => params->{registerEmail}}) ? JSON::false : JSON::true; 
+	my $valid = database->quick_count('users', {email => params->{'registerEmail'}}) ? JSON::false : JSON::true; 
 
-	debug ("Valid: $valid");
+	return to_json {'valid' => $valid}
+};
 
-	return to_json { 'valid' => $valid }
+get '/change_password/:email/:token' => sub {
+	template 'change_password' => {email => params->{'email'}, token => params->{'token'}};
 };
 
 post '/change_password' => sub {
-	my $valid = database->quick_count('users', {email => params->{changePasswordEmail}, token => params->{changePasswordToken}});
-	debug "Valid: $valid\n";
+	my $valid = database->quick_count('users', {email => params->{'changePasswordEmail'}, token => params->{'changePasswordToken'}});
+
 	if ($valid)
 	{
-		my $phrase = passphrase(param(params->{changePasswordPassword}))->generate;
+		my $phrase = passphrase(param(params->{'changePasswordPassword'}))->generate;
 		
-		database->quick_update('users', {email => params->{changePasswordEmail}, token => params->{changePasswordToken}}, {password => $phrase->rfc2307(), token => ''});
+		database->quick_update('users', {email => params->{'changePasswordEmail'}, token => params->{'changePasswordToken'}}, {password => $phrase->rfc2307(), token => ''});
 
-		return to_json { success => 1, message => "Your password has been changed." }
+		return to_json {success => 1, message => "Your password has been changed."}
 	}
 	else
 	{
-		return to_json { success => 0, message => "You have an incorrect token or email address specified. Please request to change your password again so we can send you the correct information." }
+		return to_json {success => 0, message => "You have an incorrect token or email address specified. Please request to change your password again so we can send you the correct information."}
 	}
+};
+
+get '/register' => sub {
+	template 'register';
 };
 
 post '/register' => sub {
 	my $errors;
 
-	my $available = database->quick_count('users', {email => params->{registerEmail}}) ? JSON::false : JSON::true; 
+	my $available = database->quick_count('users', {email => params->{'registerEmail'}}) ? JSON::false : JSON::true; 
 
 	if ($available)
 	{
 		my $token = encode_base64url(rand_bits(192));
 
-		database->quick_insert('users', {name => params->{registerName}, email => params->{registerEmail}, token => $token});
+		database->quick_insert('users', {name => params->{'registerName'}, email => params->{'registerEmail'}, token => $token});
 
-		# Send Email here
+		debug "\n\nToken: $token\n\n";
 
-		return to_json { success => 1, message => "An email has been sent containing a link to set your password." }
+		# Send Email here XXX TODO
+
+		return redirect '/?alertSuccess=1&alertMessage=An email has been sent container a link to set your password.';	
+
 	}
 	else
 	{
-		return to_json { success => 0, message => "That email address has already been registered." }
+		return redirect '/?alertSuccess=0&alertMessage=' . params->{'registerEmail'} . ' is already registered.';	
 	}
-	
 };
-  

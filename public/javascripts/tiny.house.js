@@ -4,16 +4,6 @@ function getParam(param) {
 }
 
 $(document).ready(function() {
-        $('#registerModal').on('shown.bs.modal', function () {
-		$('#registerName').focus();
-	});
-
-        $('#changePasswordModal').on('shown.bs.modal', function () {
-		$('#changePasswordToken').val(getParam('changePasswordToken'));
-		$('#changePasswordEmail').val(getParam('changePasswordEmail'));
-		$('#changePasswordPassword').focus();
-	});
-
 	$('#registerForm').bootstrapValidator({
 		message: 'This value is not valid',
 		feedbackIcons: {
@@ -94,14 +84,14 @@ $(document).ready(function() {
 			});
 		},
 		fields: {
-			changePasswordToken: {
+			token: {
 				validators: {
 					notEmpty: {
 						message: 'Please contact us for help'
 					}
 				}
 			},
-			changePasswordEmail: {
+			email: {
 				validators: {
 					notEmpty: {
 						message: 'Please contact us for help'
@@ -111,7 +101,7 @@ $(document).ready(function() {
 					}
 				}
 			},
-			changePasswordPassword: {
+			password: {
 				validators: {
 					notEmpty: {
 						message: 'The password field is required'
@@ -121,12 +111,12 @@ $(document).ready(function() {
 						message: 'The password must be at least six characters long'
 					},
 					identical: {
-						field: 'changePasswordConfirm',
+						field: 'confirm',
 						message: 'The password field and the confirm field do not match'
 					}
 				}
 			},
-			changePasswordConfirm: {
+			confirm: {
 				validators: {
 					notEmpty: {
 						message: 'The password field is required'
@@ -136,16 +126,11 @@ $(document).ready(function() {
 						message: 'The password must be at least six characters long'
 					},
 					identical: {
-						field: 'changePasswordPassword',
+						field: 'password',
 						message: 'The password field and the confirm field do not match'
 					}
 				}
 			}
 		}
 	});
-
-	if (location.hash == '#changePassword')
-	{
-		$('#changePasswordModal').modal('show') 
-	}
 });

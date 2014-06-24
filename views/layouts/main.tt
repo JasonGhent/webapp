@@ -31,9 +31,9 @@
 						<li><a href="#">About</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-						<li><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
-						<li><a href="#" data-toggle="modal" data-target="#contactModal">Contact</a></li>
+						<li><a href="/login">Login</a></li>
+						<li><a href="/register">Register</a></li>
+						<li><a href="/contact">Contact</a></li>
 					</ul>
 				</div>
 			</div>
@@ -41,18 +41,20 @@
 
 		<div class="container">
 			<div class="row" id="status">
-				<div class="alert alert-dismissable alert-success hide" id="success-alert">
-					<span id="success-message"></span>
-					<button type="button" class="close" data-dismiss="alert">×</button>
-				</div>
+				<% if alert && alert.success == 1 %>
+					<div class="alert alert-dismissable alert-success" id="success-alert">
+						<% alert.message | html %>
+						<button type="button" class="close" data-dismiss="alert">×</button>
+					</div>
+				<% elsif alert %>
+					<div class="alert alert-dismissable alert-danger" id="success-alert">
+						<% alert.message | html %>
+						<button type="button" class="close" data-dismiss="alert">×</button>
+					</div>
+				<% end %>
 			</div>
 			<% content %>
 		</div>
-
-                <% INCLUDE registerModal.tt %>
-                <% INCLUDE loginModal.tt %>
-                <% INCLUDE contactModal.tt %>
-                <% INCLUDE changePasswordModal.tt %>
 
 		<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
