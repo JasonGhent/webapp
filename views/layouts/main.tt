@@ -46,7 +46,7 @@
 						<% alert.message | html %>
 						<button type="button" class="close" data-dismiss="alert">×</button>
 					</div>
-				<% elsif alert %>
+				<% elsif alert && alert.success == 0 %>
 					<div class="alert alert-dismissable alert-danger" id="success-alert">
 						<% alert.message | html %>
 						<button type="button" class="close" data-dismiss="alert">×</button>
