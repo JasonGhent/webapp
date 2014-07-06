@@ -31,8 +31,13 @@
 						<li><a href="#">About</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/login">Login</a></li>
-						<li><a href="/register">Register</a></li>
+						<% if session.user_id %>
+							<li><a hred="/user/"</a><% session.user_name | html %>'s account</a></li>
+							<li><a href="/logout">Logout</a></li>
+						<% else %>
+							<li><a href="/login">Login</a></li>
+							<li><a href="/register">Register</a></li>
+						<% end %>
 						<li><a href="/contact">Contact</a></li>
 					</ul>
 				</div>

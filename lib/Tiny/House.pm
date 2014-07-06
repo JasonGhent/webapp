@@ -16,7 +16,7 @@ get '/' => sub {
 };
 
 post '/check_email_address' => sub {
-	my $valid = database->quick_count('users', {email => params->{'registerEmail'}}) ? JSON::false : JSON::true; 
+	my $valid = database->quick_count('users', {email => params->{'email'}}) ? JSON::false : JSON::true; 
 
 	return to_json {'valid' => $valid}
 };
@@ -26,20 +26,19 @@ get '/change_password/:email/:token' => sub {
 };
 
 post '/change_password' => sub {
-	my $valid = database->quick_count('users', {email => params->{'changePasswordEmail'}, token => params->{'changePasswordToken'}});
+	my $valid = database->quick_count('users', {email => params->{'email'}, token => params->{'token'}});
 
 	if ($valid)
 	{
-		my $phrase = passphrase(param(params->{'changePasswordPassword'}))->generate;
-		
-		database->quick_update('users', {email => params->{'changePasswordEmail'}, token => params->{'changePasswordToken'}}, {password => $phrase->rfc2307(), token => ''});
+		my $phrase = passphrase(params->{'password'})->generate;
+	
+		if (database->quick_update('users', {email => params->{'email'}, token => params->{'token'}}, {password => $phrase->rfc2307(), token => ''}))
+		{
+			return redirect '/?alertSuccess=1&alertMessage=Your password has been changed.';
+		}
+	}
 
-		return to_json {success => 1, message => "Your password has been changed."}
-	}
-	else
-	{
-		return to_json {success => 0, message => "You have an incorrect token or email address specified. Please request to change your password again so we can send you the correct information."}
-	}
+	return redirect '/?alertSuccess=0&alertMessage=You have an incorrect token or email address specified. Please request to change your password again so we can send you the correct information.';
 };
 
 get '/register' => sub {
@@ -49,15 +48,15 @@ get '/register' => sub {
 post '/register' => sub {
 	my $errors;
 
-	my $available = database->quick_count('users', {email => params->{'registerEmail'}}) ? JSON::false : JSON::true; 
+	my $available = database->quick_count('users', {email => params->{'email'}}) ? JSON::false : JSON::true; 
 
 	if ($available)
 	{
 		my $token = encode_base64url(rand_bits(192));
 
-		database->quick_insert('users', {name => params->{'registerName'}, email => params->{'registerEmail'}, token => $token});
+		database->quick_insert('users', {name => params->{'email'}, email => params->{'email'}, token => $token});
 
-		debug "\n\nToken: $token\n\n";
+		debug "\n\nREGISTER: http://192.168.1.2:3000/change_password/" . params->{'email'} . "/$token\n\n";
 
 		# Send Email here XXX TODO
 
@@ -66,6 +65,34 @@ post '/register' => sub {
 	}
 	else
 	{
-		return redirect '/?alertSuccess=0&alertMessage=' . params->{'registerEmail'} . ' is already registered.';	
+		return redirect '/?alertSuccess=0&alertMessage=' . params->{'email'} . ' is already registered.';	
 	}
 };
+
+get '/login' => sub {
+	template 'login';
+};
+
+post '/login' => sub {
+	my $user = database->quick_select('users', {email => params->{'email'}});
+
+	if ($user && passphrase(params->{'password'})->matches($user->{'password'})) 
+	{
+		session user_name => $user->{'name'};
+		session user_id => $user->{'id'};
+
+		# This is required by D::P::A::E
+		session logged_in_user => $user->{'email'};
+
+		return redirect '/?alertSuccess=1&alertMessage=Welcome ' . $user->{'name'} . '.'; 
+	}
+
+	return redirect '/?alertSuccess=0&alertMessage=Incorrect email or password.'; 
+};
+
+get '/logout' => sub {
+	session->destroy;
+
+	return redirect '/?alertSuccess=1&alertMessage=You have been logged out.';
+};
+

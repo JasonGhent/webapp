@@ -11,35 +11,15 @@ $(document).ready(function() {
 			invalid: 'glyphicon glyphicon-remove',
 			validating: 'glyphicon glyphicon-refresh'
 		},
-		submitHandler: function(validator, form, submitButton) {
-			$.post('/register', form.serialize(), function(result) {
-				if (result && result.success)
-				{
-					var successNotice = $('#success-alert').clone();
-					successNotice.find('#success-message').text(result.message);
-
-					$('#status').append(successNotice);
-					successNotice.removeClass('hide');
-
-					$('#registerModal').modal('hide');
-					$('#registerForm').bootstrapValidator('resetForm', true);
-				}
-				else
-				{
-				}
-			}, 'json')
-				.fail(function() {
-			});
-		},
 		fields: {
-			registerName: {
+			name: {
 				validators: {
 					notEmpty: {
 						message: 'The name field is required'
 					}
 				}
 			},
-			registerEmail: {
+			email: {
 				validators: {
 					notEmpty: {
 						message: 'The email field is required'
@@ -62,26 +42,6 @@ $(document).ready(function() {
 			valid: 'glyphicon glyphicon-ok',
 			invalid: 'glyphicon glyphicon-remove',
 			validating: 'glyphicon glyphicon-refresh'
-		},
-		submitHandler: function(validator, form, submitButton) {
-			$.post('/change_password', form.serialize(), function(result) {
-				if (result && result.success)
-				{
-					var successNotice = $('#success-alert').clone();
-					successNotice.find('#success-message').text(result.message);
-
-					$('#status').append(successNotice);
-					successNotice.removeClass('hide');
-
-					$('#changePasswordModal').modal('hide');
-					$('#changePasswordForm').bootstrapValidator('resetForm', true);
-				}
-				else
-				{
-				}
-			}, 'json')
-				.fail(function() {
-			});
 		},
 		fields: {
 			token: {
@@ -133,4 +93,38 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	$('#loginForm').bootstrapValidator({
+		message: 'This value is not valid',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			email: {
+				validators: {
+					notEmpty: {
+						message: 'The email field is required'
+					},
+					emailAddress: {
+						message: 'Please enter a valid email address'
+					}
+				}
+			},
+			password: {
+				validators: {
+					notEmpty: {
+						message: 'The password field is required'
+					},
+					stringLength: {
+						min: 6,
+						message: 'The password must be at least six characters long'
+					}
+				}
+			}
+		}
+	});
+
+
 });
