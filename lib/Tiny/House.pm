@@ -96,3 +96,6 @@ get '/logout' => sub {
 	return redirect '/?alertSuccess=1&alertMessage=You have been logged out.';
 };
 
+get '/resources/land' => sub {
+	template 'resources/land';
+};

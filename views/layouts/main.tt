@@ -13,7 +13,7 @@
 		<div class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#"><span class="logo glyphicon glyphicon-home"></span>Tiny.House</a>
+					<a class="navbar-brand" href="/"><span class="logo glyphicon glyphicon-home"></span>Tiny.House</a>
 				</div>
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
@@ -22,7 +22,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">House</a></li>
-								<li class="active"><a href="#">Land</a></li>
+								<li class="active"><a href="/resources/land">Land</a></li>
 								<li><a href="#">Finances</a></li>
 								<li><a href="#">"Stuff"</a></li>
 							</ul>
