@@ -40,7 +40,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<% if session.user_id %>
-							<li><a href="/user/"</a><% session.user_name | html %>'s account <% request.uri %></a></li>
+							<li><a href="/user/"</a><% session.user_name | html %></a></li>
 							<% PROCESS nav_item href="/logout" name="Logout" %>
 						<% else %>
 							<% PROCESS nav_item href="/login" name="Login" %>

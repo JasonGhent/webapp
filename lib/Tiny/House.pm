@@ -46,9 +46,7 @@ get '/register' => sub {
 };
 
 post '/register' => sub {
-	my $errors;
-
-	my $available = database->quick_count('users', {email => params->{'email'}}) ? JSON::false : JSON::true; 
+	my $available = database->quick_count('users', {email => params->{'email'}}) ? undef : 1; 
 
 	if ($available)
 	{
@@ -60,7 +58,7 @@ post '/register' => sub {
 
 		# Send Email here XXX TODO
 
-		return redirect '/?alertSuccess=1&alertMessage=An email has been sent container a link to set your password.';	
+		return redirect '/?alertSuccess=1&alertMessage=An email has been sent containing a link to set your password.';	
 
 	}
 	else
@@ -94,6 +92,30 @@ get '/logout' => sub {
 	session->destroy;
 
 	return redirect '/?alertSuccess=1&alertMessage=You have been logged out.';
+};
+
+get '/reset_password' => sub {
+	template 'reset_password';
+};
+
+post '/reset_password' => sub {
+
+	my $exists = database->quick_count('users', {email => params->{'email'}}); 
+
+	if ($exists)
+	{
+		my $token = encode_base64url(rand_bits(192));
+
+		database->quick_update('users', {name => params->{'email'}, email => params->{'email'}}, {token => $token});
+
+		debug "\n\nREGISTER: http://192.168.1.2:3000/change_password/" . params->{'email'} . "/$token\n\n";
+
+		# Send Email here XXX TODO
+
+	}
+
+	return redirect '/?alertSuccess=1&alertMessage=An email has been sent containing a link to reset your password.';	
+
 };
 
 get '/resources/land' => sub {
