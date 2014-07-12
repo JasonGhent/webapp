@@ -126,5 +126,82 @@ $(document).ready(function() {
 		}
 	});
 
+	$('#resetPasswordForm').bootstrapValidator({
+		message: 'This value is not valid',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			email: {
+				validators: {
+					notEmpty: {
+						message: 'The email field is required'
+					},
+					emailAddress: {
+						message: 'Please enter a valid email address'
+					}
+				}
+			}
+		}
+	});
 
+	$('#updateAccountForm').bootstrapValidator({
+		message: 'This value is not valid',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			name: {
+				validators: {
+					notEmpty: {
+						message: 'The name field is required'
+					}
+				}
+			},
+			email: {
+				validators: {
+					notEmpty: {
+						message: 'The email field is required'
+					},
+					emailAddress: {
+						message: 'Please enter a valid email address'
+					}
+				}
+			},
+			password: {
+				validators: {
+					notEmpty: {
+						message: 'The password field is required'
+					},
+					stringLength: {
+						min: 6,
+						message: 'The password must be at least six characters long'
+					},
+					identical: {
+						field: 'confirm',
+						message: 'The password field and the confirm field do not match'
+					}
+				}
+			},
+			confirm: {
+				validators: {
+					notEmpty: {
+						message: 'The password field is required'
+					},
+					stringLength: {
+						min: 6,
+						message: 'The password must be at least six characters long'
+					},
+					identical: {
+						field: 'password',
+						message: 'The password field and the confirm field do not match'
+					}
+				}
+			}
+		}
+	});
 });
