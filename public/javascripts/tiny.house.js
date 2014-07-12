@@ -204,4 +204,23 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	var map, layer;
+
+	var chicago = new google.maps.LatLng(44.970697, -93.2618534);
+
+	map = new google.maps.Map(document.getElementById('map-canvas'), {
+		center: chicago,
+		zoom: 11
+	});
+
+	layer = new google.maps.FusionTablesLayer({
+		query: {
+			select: '\'Geocodable address\'',
+			from: '17p9tskvyeMz_CRuqr8zaBE6M5aVYGgg5dTiXA7A'
+		}
+	});
+
+	layer.setMap(map);	
+
 });
