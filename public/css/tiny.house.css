@@ -5,3 +5,7 @@
 .map {
 	height: 600px;
 }
+
+.map-controls {
+	background-color: white;
+}

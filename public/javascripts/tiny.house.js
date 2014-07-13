@@ -207,20 +207,47 @@ $(document).ready(function() {
 
 	var map, layer;
 
-	var chicago = new google.maps.LatLng(44.970697, -93.2618534);
+	var minneapolis = new google.maps.LatLng(44.970697, -93.2618534);
 
 	map = new google.maps.Map(document.getElementById('map-canvas'), {
-		center: chicago,
-		zoom: 11
+		center: minneapolis,
+		zoom: 11,
+		panControl: true,
+		zoomControl: true,
+		mapTypeControl: false,
+		scaleControl: true,
+		streetViewControl: false,
+		overviewMapControl:true 
 	});
 
 	layer = new google.maps.FusionTablesLayer({
 		query: {
 			select: '\'Geocodable address\'',
 			from: '17p9tskvyeMz_CRuqr8zaBE6M5aVYGgg5dTiXA7A'
-		}
+		},
+		styles: [{
+			where: "'Size' < 500",
+			polygonOptions: {
+				fillColor: "#FF6600",
+				strokeColor: "#FFFFFF",
+				strokeWeight: 2
+			}
+			}, {
+				where: "'Size' >= 500",
+				polygonOptions: {
+				fillColor: "#00CCCC",
+				strokeColor: "#FFFFFF",
+				strokeWeight: 3
+			}
+		}]
 	});
 
 	layer.setMap(map);	
+
+	tinyDiv = $('#square-feet-control');
+	tinyDiv.removeClass('hidden');
+console.log(tinyDiv);
+	// Need to give the dom object to the map, not the jquery object, hence [0]
+	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tinyDiv[0]);
 
 });
