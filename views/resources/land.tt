@@ -13,9 +13,15 @@
 </div>
 
 <div class="form-group hidden" id="square-feet-control">
-  <div class="input-group" style="width: 200px; padding-top: 10px; padding-right: 10px;">
+  <div class="input-group map-controls map-controls-square-feet">
     <span class="input-group-addon">Tiny is</span>  
     <input type="text" class="form-control" value="400">
     <span class="input-group-addon">Sq Ft</span>  
   </div>
+</div>
+
+<div class="form-group hidden" id="search-control">
+<div class="input-group map-controls">
+<input id="search-control" class="input map-controls-search" type="text" placeholder="Search Box">
+</div>
 </div>

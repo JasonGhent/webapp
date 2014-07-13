@@ -246,8 +246,19 @@ $(document).ready(function() {
 
 	tinyDiv = $('#square-feet-control');
 	tinyDiv.removeClass('hidden');
-console.log(tinyDiv);
+
 	// Need to give the dom object to the map, not the jquery object, hence [0]
 	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tinyDiv[0]);
+
+
+var input = $('#search-control');
+input.removeClass('hidden');
+
+google.maps.event.addListener(input, 'places_changed', function() {
+		alert('heuy');
+	});
+	
+	// Need to give the dom object to the map, not the jquery object, hence [0]
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input[0]);
 
 });
