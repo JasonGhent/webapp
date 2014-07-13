@@ -14,17 +14,8 @@
 
 <div class="form-group hidden" id="square-feet-control">
   <div class="input-group" style="width: 200px; padding-top: 10px; padding-right: 10px;">
-    <span class="input-group-addon">Square Feet</span>  
+    <span class="input-group-addon">Tiny is</span>  
     <input type="text" class="form-control" value="400">
-    <span class="input-group-btn">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-      <ul class="dropdown-menu pull-right">
-        <li><a href="#">400</a></li>
-        <li><a href="#">300</a></li>
-        <li><a href="#">200</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Custom</a></li>
-      </ul>              
-    </span>
+    <span class="input-group-addon">Sq Ft</span>  
   </div>
 </div>
