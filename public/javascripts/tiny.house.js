@@ -251,14 +251,16 @@ $(document).ready(function() {
 	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tinyDiv[0]);
 
 
-var input = $('#search-control');
-input.removeClass('hidden');
+	var searchCustomControl = $('#search-control-container');
+	searchCustomControl.removeClass('hidden');
 
-google.maps.event.addListener(input, 'places_changed', function() {
-		alert('heuy');
-	});
-	
 	// Need to give the dom object to the map, not the jquery object, hence [0]
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input[0]);
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchCustomControl[0]);
 
+	var searchInput = $('#search-control');
+	var searchBox = new google.maps.places.Autocomplete(searchInput[0]);
+
+	google.maps.event.addListener(searchBox, 'place_changed', function() {
+		
+	});
 });

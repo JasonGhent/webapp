@@ -20,8 +20,8 @@
   </div>
 </div>
 
-<div class="form-group hidden" id="search-control">
-<div class="input-group map-controls">
-<input id="search-control" class="input map-controls-search" type="text" placeholder="Search Box">
-</div>
+<div class="form-group hidden" id="search-control-container">
+  <div class="input-group map-controls">
+    <input id="search-control" class="input map-controls-search" type="text" placeholder="Search Box">
+  </div>
 </div>
