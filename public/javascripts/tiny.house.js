@@ -261,6 +261,16 @@ $(document).ready(function() {
 	var searchBox = new google.maps.places.Autocomplete(searchInput[0]);
 
 	google.maps.event.addListener(searchBox, 'place_changed', function() {
-		
+		var place = searchBox.getPlace();
+
+		if (!place.geometry) {
+			return;
+		}
+	
+		if (place.geometry.viewport) {
+			map.fitBounds(place.geometry.viewport);
+		} else {
+			map.setCenter(place.geometry.location);
+		}		
 	});
 });
