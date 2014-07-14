@@ -1,8 +1,3 @@
-function getParam(param) {
-	var half = location.search.split(param + '=')[1];
-	return half? decodeURIComponent(half.split('&')[0]):null;
-}
-
 $(document).ready(function() {
 	$('#registerForm').bootstrapValidator({
 		message: 'This value is not valid',
@@ -205,7 +200,7 @@ $(document).ready(function() {
 		}
 	});
 
-	var map, layer;
+	var map;
 
 	var minneapolis = new google.maps.LatLng(44.970697, -93.2618534);
 
@@ -225,21 +220,7 @@ $(document).ready(function() {
 			select: '\'Geocodable address\'',
 			from: '17p9tskvyeMz_CRuqr8zaBE6M5aVYGgg5dTiXA7A'
 		},
-		styles: [{
-			where: "'Size' < 500",
-			polygonOptions: {
-				fillColor: "#FF6600",
-				strokeColor: "#FFFFFF",
-				strokeWeight: 2
-			}
-			}, {
-				where: "'Size' >= 500",
-				polygonOptions: {
-				fillColor: "#00CCCC",
-				strokeColor: "#FFFFFF",
-				strokeWeight: 3
-			}
-		}]
+		styles: updateStyles($('#square-feet').val())
 	});
 
 	layer.setMap(map);	
@@ -273,4 +254,41 @@ $(document).ready(function() {
 			map.setCenter(place.geometry.location);
 		}		
 	});
+
+	var square_feet = $('#square-feet');
+
+	google.maps.event.addDomListener(square_feet[0], 'change', function() {
+		layer.setOptions({
+			styles: updateStyles($('#square-feet').val())
+		});
+	});
 });
+
+function updateStyles(division) {
+	console.log("size: " + division);
+	var fillStyles = [{
+		where: "'Size' = -1",
+		polygonOptions: {
+			fillColor: "#B5BAB6",
+			strokeColor: "#666666",
+			strokeWeight: 1
+		}
+	}, {
+		where: "'Size' >= 0 and 'Size' <= " + division,
+		polygonOptions: {
+			fillColor: "#29e529",
+			strokeColor: "#666666",
+			strokeWeight: 1
+		}
+	}, {
+		where: "'Size' > " + division,
+		polygonOptions: {
+			fillColor: "#E52929",
+			strokeColor: "#666666",
+			strokeWeight: 1
+		}
+	}];
+
+	console.log(fillStyles);
+	return fillStyles;
+}
