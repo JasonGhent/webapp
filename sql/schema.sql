@@ -24,15 +24,40 @@ CREATE TABLE links (
 -- Table: places
 CREATE TABLE places (
     id serial  NOT NULL,
-    user_id int  NOT NULL,
-    revision date  NOT NULL,
-    type text  NOT NULL,
     kml text  NOT NULL,
-    minimum_house_sqft int  NOT NULL,
-    minmum_lot_sqft int  NOT NULL,
-    display_name text  NOT NULL,
-    short_display_name text  NOT NULL,
+    place text  NOT NULL,
+    state text  NOT NULL,
+    country text  NOT NULL,
     CONSTRAINT places_pk PRIMARY KEY (id)
+);
+
+-- Table: adu
+CREATE TABLE adu (
+    id serial  NOT NULL,
+    place_id int  NOT NULL,
+    revision date  NOT NULL,
+    minimum_sqft int,
+    maximum_sqft int,
+    minimum_lot_sqft int,
+    CONSTRAINT adu_pk PRIMARY KEY (id)
+);
+
+-- Table: foundation
+CREATE TABLE foundation (
+    id serial  NOT NULL,
+    place_id int  NOT NULL,
+    revision date  NOT NULL,
+    minimum_sqft int,
+    minimum_lot_sqft int,
+    CONSTRAINT foundation_pk PRIMARY KEY (id)
+);
+
+-- Table: trailer
+CREATE TABLE trailer (
+    id serial  NOT NULL,
+    place_id int  NOT NULL,
+    revision date  NOT NULL,
+    CONSTRAINT trailer_pk PRIMARY key (id)
 );
 
 -- Table: users
