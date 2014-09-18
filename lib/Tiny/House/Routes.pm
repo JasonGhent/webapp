@@ -5,6 +5,8 @@ use Dancer::Plugin::Passphrase;
 use Data::Entropy::Algorithms qw/rand_bits/;
 use JSON;
 use MIME::Base64 qw/encode_base64url/;
+use MIME::Entity;
+use Net::AWS::SES;
 
 use Data::Dumper;
 
@@ -24,7 +26,7 @@ get '/change_password/:email/:token' => sub {
 	template 'change_password' => {email => params->{'email'}, token => params->{'token'}};
 };
 
-post '/change_password' => sub {
+post '/change_password/:email/:token' => sub {
 	my $valid = database->quick_count('users', {email => params->{'email'}, token => params->{'token'}});
 
 	if ($valid)
@@ -56,9 +58,27 @@ post '/register' => sub {
 		debug "\n\nREGISTER: http://192.168.1.2:3000/change_password/" . params->{'email'} . "/$token\n\n";
 
 		# Send Email here XXX TODO
+                my $email_message = MIME::Entity->build
+		(
+			From => 'noreply@Tiny.House',
+			To => params->{'email'},
+			Subject => 'Tiny.House - Confirm your email address',
+			Data => "To confirm your email address please visit http://tiny.house/change_password/" . params->{'email'} . "/$token",
+		);
 
-		return redirect '/?alertSuccess=1&alertMessage=An email has been sent containing a link to set your password.';	
+		my $ses = Net::AWS::SES->new(access_key => config->{aws_access_key_id}, secret_key => config->{aws_secret_access_key}); 
+		my $response = $ses->send($email_message);
 
+		if ($response->is_success) 
+		{
+			return redirect '/?alertSuccess=1&alertMessage=An email has been sent containing a link to set your password.';	
+		}
+		else
+		{
+debug Dumper($response); use Data::Dumper;
+			return redirect '/?alertSuccess=0&alertMessage=Unable to send you an email to set your password, please try again later.';	
+			debug "\n\nCould not deliver the message: " . $response->error_message . "\n\n";
+		}
 	}
 	else
 	{
