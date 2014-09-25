@@ -225,6 +225,16 @@ $(document).ready(function() {
 
 	layer.setMap(map);	
 
+        google.maps.event.addDomListener(window, "resize", function() {
+          var center = map.getCenter();
+          google.maps.event.trigger(map, "resize");
+          map.setCenter(center);
+        });
+
+        $("a[href='#map']").on('shown.bs.tab', function(){
+          google.maps.event.trigger(map, 'resize');
+        });
+
 	tinyDiv = $('#square-feet-control');
 	tinyDiv.removeClass('hidden');
 
