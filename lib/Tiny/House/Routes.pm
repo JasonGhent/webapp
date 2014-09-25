@@ -55,7 +55,7 @@ post '/register' => sub {
 
 		database->quick_insert('users', {name => params->{'email'}, email => params->{'email'}, token => $token});
 
-		debug "\n\nREGISTER: http://192.168.1.2:3000/change_password/" . params->{'email'} . "/$token\n\n";
+		my $link = request->uri_base() . "/change_password/" . params->{'email'} . "/" . $token;
 
 		# Send Email here XXX TODO
                 my $email_message = MIME::Entity->build
@@ -63,7 +63,7 @@ post '/register' => sub {
 			From => 'noreply@Tiny.House',
 			To => params->{'email'},
 			Subject => 'Tiny.House - Confirm your email address',
-			Data => "To confirm your email address please visit http://tiny.house/change_password/" . params->{'email'} . "/$token",
+			Data => 'To confirm your email address please visit <a href="' . $link . '">' . $link . '</a>',
 		);
 
 		my $ses = Net::AWS::SES->new(access_key => config->{aws_access_key_id}, secret_key => config->{aws_secret_access_key}); 
@@ -75,7 +75,6 @@ post '/register' => sub {
 		}
 		else
 		{
-debug Dumper($response); use Data::Dumper;
 			return redirect '/?alertSuccess=0&alertMessage=Unable to send you an email to set your password, please try again later.';	
 			debug "\n\nCould not deliver the message: " . $response->error_message . "\n\n";
 		}
@@ -139,5 +138,7 @@ post '/reset_password' => sub {
 };
 
 get '/resources/land' => sub {
-	template 'resources/land';
+	my @places = database->quick_select('places', {}, {order_by => ['state', 'place']});
+
+	template 'resources/land', {places => \@places};
 };
