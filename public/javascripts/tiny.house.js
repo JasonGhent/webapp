@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	$(function () { $("[data-toggle='tooltip']").tooltip(); });
+
 	$('#registerForm').bootstrapValidator({
 		message: 'This value is not valid',
 		feedbackIcons: {
@@ -200,78 +202,127 @@ $(document).ready(function() {
 		}
 	});
 
-	var map;
-
-	var minneapolis = new google.maps.LatLng(44.970697, -93.2618534);
-
-	map = new google.maps.Map(document.getElementById('map-canvas'), {
-		center: minneapolis,
-		zoom: 11,
-		panControl: true,
-		zoomControl: true,
-		mapTypeControl: false,
-		scaleControl: true,
-		streetViewControl: false,
-		overviewMapControl:true 
-	});
-
-	layer = new google.maps.FusionTablesLayer({
-		query: {
-			select: '\'Geocodable address\'',
-			from: '17p9tskvyeMz_CRuqr8zaBE6M5aVYGgg5dTiXA7A'
+	$('#placesForm').bootstrapValidator({
+		message: 'This value is not valid',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
 		},
-		styles: updateStyles($('#square-feet').val())
-	});
-
-	layer.setMap(map);	
-
-        google.maps.event.addDomListener(window, "resize", function() {
-          var center = map.getCenter();
-          google.maps.event.trigger(map, "resize");
-          map.setCenter(center);
-        });
-
-        $("a[href='#map']").on('shown.bs.tab', function(){
-          google.maps.event.trigger(map, 'resize');
-        });
-
-	tinyDiv = $('#square-feet-control');
-	tinyDiv.removeClass('hidden');
-
-	// Need to give the dom object to the map, not the jquery object, hence [0]
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tinyDiv[0]);
-
-
-	var searchCustomControl = $('#search-control-container');
-	searchCustomControl.removeClass('hidden');
-
-	// Need to give the dom object to the map, not the jquery object, hence [0]
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchCustomControl[0]);
-
-	var searchInput = $('#search-control');
-	var searchBox = new google.maps.places.Autocomplete(searchInput[0]);
-
-	google.maps.event.addListener(searchBox, 'place_changed', function() {
-		var place = searchBox.getPlace();
-
-		if (!place.geometry) {
-			return;
+		fields: {
+			place: {
+				validators: {
+					notEmpty: {
+						message: 'The place field is required'
+					}
+				}
+			},
+			state: {
+				validators: {
+					notEmpty: {
+						message: 'The state field is required'
+					}
+				}
+			},
+			adu: {
+				validators: {
+                                        integer: {
+						message: 'You must specify a valid integer'
+					}
+				}
+			},
+			foundation: {
+				validators: {
+                                        integer: {
+						message: 'You must specify a valid integer'
+					}
+				}
+			},
+			mobile: {
+				validators: {
+                                        integer: {
+						message: 'You must specify a valid integer'
+					}
+				}
+			}
 		}
-	
-		if (place.geometry.viewport) {
-			map.fitBounds(place.geometry.viewport);
-		} else {
-			map.setCenter(place.geometry.location);
-		}		
 	});
 
-	var square_feet = $('#square-feet');
+        if ($('#map-canvas').length >= 1)
+        {
+		var map;
 
-	google.maps.event.addDomListener(square_feet[0], 'change', function() {
-		layer.setOptions({
+		var minneapolis = new google.maps.LatLng(44.970697, -93.2618534);
+
+		map = new google.maps.Map(document.getElementById('map-canvas'), {
+			center: minneapolis,
+			zoom: 11,
+			panControl: true,
+			zoomControl: true,
+			mapTypeControl: false,
+			scaleControl: true,
+			streetViewControl: false,
+			overviewMapControl:true 
+		});
+
+		layer = new google.maps.FusionTablesLayer({
+			query: {
+				select: '\'Geocodable address\'',
+				from: '17p9tskvyeMz_CRuqr8zaBE6M5aVYGgg5dTiXA7A'
+			},
 			styles: updateStyles($('#square-feet').val())
 		});
-	});
+
+		layer.setMap(map);	
+
+		google.maps.event.addDomListener(window, "resize", function() {
+		  var center = map.getCenter();
+		  google.maps.event.trigger(map, "resize");
+		  map.setCenter(center);
+		});
+
+		$("a[href='#map']").on('shown.bs.tab', function(){
+		  google.maps.event.trigger(map, 'resize');
+		});
+
+		tinyDiv = $('#square-feet-control');
+		tinyDiv.removeClass('hidden');
+
+		// Need to give the dom object to the map, not the jquery object, hence [0]
+		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tinyDiv[0]);
+
+
+		var searchCustomControl = $('#search-control-container');
+		searchCustomControl.removeClass('hidden');
+
+		// Need to give the dom object to the map, not the jquery object, hence [0]
+		map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchCustomControl[0]);
+
+		var searchInput = $('#search-control');
+		var searchBox = new google.maps.places.Autocomplete(searchInput[0]);
+
+		google.maps.event.addListener(searchBox, 'place_changed', function() {
+			var place = searchBox.getPlace();
+
+			if (!place.geometry) {
+				return;
+			}
+		
+			if (place.geometry.viewport) {
+				map.fitBounds(place.geometry.viewport);
+			} else {
+				map.setCenter(place.geometry.location);
+			}		
+		});
+
+		var square_feet = $('#square-feet');
+
+		google.maps.event.addDomListener(square_feet[0], 'change', function() {
+			layer.setOptions({
+				styles: updateStyles($('#square-feet').val())
+			});
+		});
+	}
 });
 
 function updateStyles(division) {

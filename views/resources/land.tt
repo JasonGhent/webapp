@@ -24,10 +24,10 @@
                 </ul>
               <% END %>
               <% current_state = place.state %>
-              <h2><%= place.state.upper %></h2>
+              <h2><%= place.state.upper | html %></h2>
               <ul class="list-group">
             <% END %>
-              <li class="list-group-item"><% place.place %></li>
+              <li class="list-group-item"><a href="<% request.uri_base %>/resources/land/view/<% place.id %>"><% place.place | html %></a></li>
           <% END %>
           </ul>
         </div>

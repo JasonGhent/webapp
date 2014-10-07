@@ -20,3 +20,7 @@
 .map-controls-search {
 	width: 400px;
 }
+
+.tooltip-button {
+	display: inline-block;
+}

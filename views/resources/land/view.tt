@@ -1,0 +1,70 @@
+<legend>Land
+</legend>
+
+<div class="row">
+  <div class="col-lg-2 text-right">
+    <strong>Place</strong>
+  </div>
+  <div class="col-lg-4">
+    <% place.place | html %><% IF place.defined('state') %>, <% place.state | html %><% END %><% IF place.defined('country') %>, <% place.country | html %><% END %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-2 text-right">
+    <strong>ADU</strong>
+  </div>
+  <div class="col-lg-4">
+    <% IF place.defined('adu_minimum_square_feet') %><% place.adu_minimum_square_feet | html %> sqft<% END %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-2 text-right">
+    <strong>Foundation</strong>
+  </div>
+  <div class="col-lg-4">
+    <% IF place.defined('foundation_minimum_square_feet') %><% place.foundation_minimum_square_feet | html %> sqft<% END %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-2 text-right">
+    <strong>Mobile</strong>
+  </div>
+  <div class="col-lg-4">
+    <% IF place.defined('trailer_minimum_square_feet') %><% place.trailer_minimum_square_feet | html %> sqft<% END %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-2 text-right">
+    <strong>Notes</strong>
+  </div>
+  <div class="col-lg-4">
+    <% place.place | html %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-2 text-right">
+    <strong>Files</strong>
+  </div>
+  <div class="col-lg-4">
+    <% place.place | html %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-2">
+    <% if session.user_id %>
+      <a href="<% request.uri_base %>/resources/land/edit/<% place.id %>" class="btn btn-primary btn-sm">Edit</a>
+    <% else %>
+      <span class="tooltip-button" data-toggle="tooltip" data-placement="right" title="Log in to edit this content">
+        <a href="#" class="btn btn-primary btn-sm disabled">Edit</a>
+      </span>
+    <% end %>
+  </div>
+</div>
+

@@ -26,7 +26,7 @@ get '/change_password/:email/:token' => sub {
 	template 'change_password' => {email => params->{'email'}, token => params->{'token'}};
 };
 
-post '/change_password/:email/:token' => sub {
+post '/change_password' => sub {
 	my $valid = database->quick_count('users', {email => params->{'email'}, token => params->{'token'}});
 
 	if ($valid)
@@ -53,17 +53,18 @@ post '/register' => sub {
 	{
 		my $token = encode_base64url(rand_bits(192));
 
-		database->quick_insert('users', {name => params->{'email'}, email => params->{'email'}, token => $token});
+		database->quick_insert('users', {name => params->{'name'}, email => params->{'email'}, token => $token});
 
 		my $link = request->uri_base() . "/change_password/" . params->{'email'} . "/" . $token;
 
 		# Send Email here XXX TODO
                 my $email_message = MIME::Entity->build
 		(
-			From => 'noreply@Tiny.House',
+			From => 'noreply@tiny.house',
 			To => params->{'email'},
 			Subject => 'Tiny.House - Confirm your email address',
 			Data => 'To confirm your email address please visit <a href="' . $link . '">' . $link . '</a>',
+			Type    => 'text/html',
 		);
 
 		my $ses = Net::AWS::SES->new(access_key => config->{aws_access_key_id}, secret_key => config->{aws_secret_access_key}); 
@@ -75,8 +76,8 @@ post '/register' => sub {
 		}
 		else
 		{
-			return redirect '/?alertSuccess=0&alertMessage=Unable to send you an email to set your password, please try again later.';	
 			debug "\n\nCould not deliver the message: " . $response->error_message . "\n\n";
+			return redirect '/?alertSuccess=0&alertMessage=Unable to send you an email to set your password, please try again later.';	
 		}
 	}
 	else
@@ -92,7 +93,7 @@ get '/login' => sub {
 post '/login' => sub {
 	my $user = database->quick_select('users', {email => params->{'email'}});
 
-	if ($user && passphrase(params->{'password'})->matches($user->{'password'})) 
+	if ($user && params->{'password'} && $user->{'password'} && passphrase(params->{'password'})->matches($user->{'password'})) 
 	{
 		session user_name => $user->{'name'};
 		session user_email => $user->{'email'};
@@ -135,10 +136,4 @@ post '/reset_password' => sub {
 
 	return redirect '/?alertSuccess=1&alertMessage=An email has been sent containing a link to reset your password.';	
 
-};
-
-get '/resources/land' => sub {
-	my @places = database->quick_select('places', {}, {order_by => ['state', 'place']});
-
-	template 'resources/land', {places => \@places};
 };

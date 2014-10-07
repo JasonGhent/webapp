@@ -3,22 +3,11 @@
 CREATE TABLE attachments (
     id serial  NOT NULL,
     user_id int  NOT NULL,
-    revision date  NOT NULL,
+    revision timestamp NOT NULL default now(),
     name text  NOT NULL,
     file_path text  NOT NULL,
-    text text  NOT NULL,
-    CONSTRAINT attachments_pk PRIMARY KEY (id)
-);
-
--- Table: links
-CREATE TABLE links (
-    id serial  NOT NULL,
-    user_id int  NOT NULL,
-    place_id int  NOT NULL,
-    revision date  NOT NULL,
-    link text  NOT NULL,
-    text text  NOT NULL,
-    CONSTRAINT links_pk PRIMARY KEY (id)
+    approved bool,
+    notes text
 );
 
 -- Table: places
@@ -26,12 +15,14 @@ CREATE TABLE places (
     id serial  NOT NULL,
     kml text  NOT NULL,
     place text  NOT NULL,
-    state text  NOT NULL,
-    country text  NOT NULL,
+    revision timestamp NOT NULL default now(),
+    state text,
+    country text,
     foundation_minimum_square_feet int,
     adu_minimum_square_feet int,
     trailer_minimum_square_feet int,
-    CONSTRAINT places_pk PRIMARY KEY (id)
+    approved bool,
+    notes text
 );
 
 -- Table: users

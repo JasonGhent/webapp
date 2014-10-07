@@ -1,19 +1,19 @@
-<form class="form-horizontal" id="changePasswordForm" method="post" action="/change_password">
+<form class="form-horizontal" id="updateAccountForm" method="post">
   <fieldset>
 
-    <legend>Change Password</legend>
+    <legend>Update Account</legend>
 
-    <div class="form-group hide">
-      <label for="token" class="col-lg-2 control-label" aria-hidden="true">Token</label>
+    <div class="form-group">
+      <label for="name" class="col-lg-2 control-label">Name</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" name="token" placeholder="Token" value="<% token | html %>" aria-hidden="true">
+        <input type="text" class="form-control" id="name" name="name" placeholder="<% session.user_name | html %>">
       </div>
     </div>
 
-    <div class="form-group hide">
-      <label for="email" class="col-lg-2 control-label" aria-hidden="true">Email</label>
+    <div class="form-group">
+      <label for="email" class="col-lg-2 control-label">Email</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" name="email" placeholder="Email" value="<% email | html %>" aria-hidden="true">
+        <input type="text" class="form-control" id="email" name="email" placeholder="<% session.user_email | html %>">
       </div>
     </div>
 
@@ -33,7 +33,7 @@
 
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button name="registerSubmit" type="submit" class="btn btn-primary">Set Password</button>
+        <button class="btn btn-primary" type="submit">Update Account</button>
       </div>
     </div>
 

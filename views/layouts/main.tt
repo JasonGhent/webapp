@@ -2,7 +2,7 @@
 
 <% BLOCK nav_item %>
 	<li <% if request.uri == href %>class="active"<% end %>>
-		<a href="<% href %>"><% name %></a>
+		<a href="<% href | html %>"><% name | html %></a>
 	</li>
 <% END %>
 

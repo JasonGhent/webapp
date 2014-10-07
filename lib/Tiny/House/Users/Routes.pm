@@ -13,10 +13,16 @@ our $VERSION = '0.1';
 prefix '/user';
 
 get '/' => sub {
-	template 'user/index'; 
+	my @users = database->quick_select('users', {});
+
+	template 'user/index', {users => \@users};
 };
 
-post '/' => sub {
+get '/edit' => sub {
+	template 'user/index';
+};
+
+post '/edit' => sub {
 	my $update_items;
 	my $current_email = session->{'user_email'};
  
