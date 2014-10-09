@@ -12,10 +12,16 @@ our $VERSION = '0.1';
 
 prefix '/user';
 
-get '/' => sub {
+get '/' => require_role manage_users => sub {
 	my @users = database->quick_select('users', {});
 
 	template 'user/index', {users => \@users};
+};
+
+get '/view/:id' => require_role manage_users => sub {
+	my $user = database->quick_select('users', {id => params->{'id'}});
+
+	template '/user/view', {user => $user};
 };
 
 get '/edit' => sub {
@@ -59,9 +65,6 @@ post '/edit' => sub {
 
 	if (scalar(keys(%{$update_items})) >= 1 && database->quick_update('users', {email => $current_email},  $update_items))
 	{
-		debug 'Update called';
-		debug Dumper($update_items);
-
 		return redirect '/user/?alertSuccess=1&alertMessage=Your account has been udpated.';
 	}
 

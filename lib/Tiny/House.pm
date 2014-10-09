@@ -1,5 +1,6 @@
 package Tiny::House;
 use Dancer ':syntax';
+use Dancer::Plugin::Auth::Extensible;
 use Dancer::Plugin::Database;
 use Dancer::Plugin::Passphrase;
 

@@ -49,4 +49,9 @@ CREATE TABLE user_roles (
     CONSTRAINT user_roles_pl PRIMARY KEY (user_id, role_id)
 );
 
+-- Values: roles
+INSERT INTO roles(id, role) VALUES(1, 'manage_roles');
+INSERT INTO roles(id, role) VALUES(2, 'manage_users');
+INSERT INTO roles(id, role) VALUES(3, 'manage_places');
+
 -- End of file.

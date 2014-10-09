@@ -323,6 +323,13 @@ $(document).ready(function() {
 			});
 		});
 	}
+
+	$('.table > tbody > tr').click(function() {
+		// row was clicked
+		console.dir($(this));
+		console.log($(this).attr('data-target'));
+		window.location = $(this).attr('data-target');
+	});
 });
 
 function updateStyles(division) {

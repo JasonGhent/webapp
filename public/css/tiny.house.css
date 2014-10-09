@@ -24,3 +24,8 @@
 .tooltip-button {
 	display: inline-block;
 }
+
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+  background-color: #CCCCCC;
+  color:#333333;
+}

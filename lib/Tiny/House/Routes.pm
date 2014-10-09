@@ -57,7 +57,7 @@ post '/register' => sub {
 
 		my $link = request->uri_base() . "/change_password/" . params->{'email'} . "/" . $token;
 
-		# Send Email here XXX TODO
+		# Send Email here
                 my $email_message = MIME::Entity->build
 		(
 			From => 'noreply@tiny.house',
@@ -101,6 +101,7 @@ post '/login' => sub {
 
 		# This is required by D::P::A::E
 		session logged_in_user => $user->{'email'};
+		session logged_in_user_realm => 'users';
 
 		return redirect '/?alertSuccess=1&alertMessage=Welcome ' . $user->{'name'} . '.'; 
 	}
@@ -126,14 +127,35 @@ post '/reset_password' => sub {
 	{
 		my $token = encode_base64url(rand_bits(192));
 
-		database->quick_update('users', {name => params->{'email'}, email => params->{'email'}}, {token => $token});
+		database->quick_update('users', {email => params->{'email'}}, {token => $token});
 
-		debug "\n\nREGISTER: http://192.168.1.2:3000/change_password/" . params->{'email'} . "/$token\n\n";
+		my $link = request->uri_base() . "/change_password/" . params->{'email'} . "/" . $token;
 
-		# Send Email here XXX TODO
+		# Send Email here
+                my $email_message = MIME::Entity->build
+		(
+			From => 'noreply@tiny.house',
+			To => params->{'email'},
+			Subject => 'Tiny.House - Reset your password',
+			Data => 'To reset your password please visit <a href="' . $link . '">' . $link . '</a>',
+			Type    => 'text/html',
+		);
 
+		my $ses = Net::AWS::SES->new(access_key => config->{aws_access_key_id}, secret_key => config->{aws_secret_access_key}); 
+		my $response = $ses->send($email_message);
+
+		if ($response->is_success) 
+		{
+			return redirect '/?alertSuccess=1&alertMessage=An email has been sent containing a link to reset your password.';	
+		}
+		else
+		{
+			debug "\n\nCould not deliver the message: " . $response->error_message . "\n\n";
+			return redirect '/?alertSuccess=0&alertMessage=Unable to send you an email to reset your password, please try again later.';	
+		}
 	}
-
-	return redirect '/?alertSuccess=1&alertMessage=An email has been sent containing a link to reset your password.';	
-
 };
+
+get '/denied' => sub {
+	template 'index' => {alert => {success => 0, message => 'You do not have permission to access that page.'}};
+}; 
