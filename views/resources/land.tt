@@ -11,7 +11,7 @@
     <h2>Awaiting Review</h2>
       <ul class="list-group">
         <% foreach place in places_awaiting_review %>
-              <li class="list-group-item"><a href="<% request.uri_base %>/resources/land/review/<% place.id %>"><% place.place | html %><% if place.sate %>, <% place.state %><% end %></a></li>
+              <li class="list-group-item"><a href="<% request.uri_base %>/resources/land/review/<% place.id %>"><% place.place | html %><% if place.state %>, <% place.state %><% end %></a></li>
         <% end %>
       </ul>
   <% end %>
