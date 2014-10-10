@@ -23,6 +23,8 @@ WHERE
               
 		WHERE 
 			p1.id = p2.id
+		AND
+			approved = true
 	)
 	');
 
@@ -32,7 +34,7 @@ WHERE
 
 	$sth = database->prepare('
 SELECT 
-	COUNT(*) AS awaiting_review 
+	*
 FROM 
 	places 
 WHERE 
@@ -50,9 +52,10 @@ WHERE
 
 	$sth->execute;
 
-	my $awaiting_review = $sth->fetchrow_array();
+	my $places_awaiting_review = $sth->fetchall_arrayref({});
+	my $awaiting_review = scalar(@{$places_awaiting_review}); 
 
-	template 'resources/land', {places => $places, awaiting_review => $awaiting_review};
+	template 'resources/land', {places => $places, places_awaiting_review => $places_awaiting_review, awaiting_review => $awaiting_review};
 };
 
 get '/view/:land' => sub {
