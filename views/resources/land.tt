@@ -1,12 +1,19 @@
-<legend>Land
-</legend>
+<% BLOCK badge %>
+  <% if session.manage_places and awaiting_review >= 1 %>
+    <span class="badge <% if awaiting_review < 6 %>alert-warning<% elsif awaiting_review >= 6 %>alert-danger<% end %>">
+    <% awaiting_review %>
+    </span>
+  <% end %>
+<% END %>
+
+<legend>Land</legend>
 
 <div class="container fill">
   <div class="row">
     <div class="col-lg-12">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#map" data-toggle="tab">Map</a></li>
-        <li><a href="#list" data-toggle="tab">List</a></li>
+        <li><a href="#list" data-toggle="tab">List<% process badge %></a></li>
       </ul>
 
       <div id="tabContent" class="tab-content">

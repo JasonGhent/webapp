@@ -102,6 +102,11 @@ post '/login' => sub {
 		# This is required by D::P::A::E
 		session logged_in_user => $user->{'email'};
 		session logged_in_user_realm => 'users';
+		
+		# Save which roles our use has for display differences
+		session manage_roles => user_has_role('manage_roles');
+		session manage_users => user_has_role('manage_users');
+		session manage_places => user_has_role('manage_places');
 
 		return redirect '/?alertSuccess=1&alertMessage=Welcome ' . $user->{'name'} . '.'; 
 	}

@@ -30,8 +30,29 @@ WHERE
 
 	my $places = $sth->fetchall_arrayref({});
 
-debug Dumper($places);
-	template 'resources/land', {places => $places};
+	$sth = database->prepare('
+SELECT 
+	COUNT(*) AS awaiting_review 
+FROM 
+	places 
+WHERE 
+	revision >= 
+	(
+		SELECT 
+			MAX(revision) 
+		FROM 
+			places 
+		WHERE 
+			approved = true
+	) 
+	AND 
+	approved = false');
+
+	$sth->execute;
+
+	my $awaiting_review = $sth->fetchrow_array();
+
+	template 'resources/land', {places => $places, awaiting_review => $awaiting_review};
 };
 
 get '/view/:land' => sub {
