@@ -1,0 +1,70 @@
+<% people = [
+	{
+		name => 'TinyJ',
+		image => 'https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/00f/142/11d4eed.jpg',
+		meetup => 'http://www.meetup.com/members/4395381/'
+	}
+] %>
+
+<% BLOCK person %>
+	<div class="panel panel-default">
+		<div class="panel-body text-center">
+			<img src="<% person.image %>">
+		</div>
+		<div class="panel-footer">
+			<% person.name %>
+
+			<div class="pull-right">
+				<% IF person.meetup %>
+					<span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Meetup.com Profile"></span>
+				<% END %>
+			</div>
+		</div>
+	</div>
+<% END %>
+
+
+<legend>About</legend>
+
+<p>
+<a href="http://tiny.house">Tiny.House</a> came about from a desire to provide accurate education 
+to the community while maintaining the tiny philosophy. There are numerous websites out there both 
+big and small that attempt to do this today, but I find the commercialism, and the willingness of 
+these folks to sell you something un-tiny. Nothing feels farther from the tiny movement then a 
+website with fourteen advertisements down the side, products that they where compensated to review, 
+or trying to sell you something freely available on the internet. Being actively involved in my 
+local tiny community I often hear about different things people have paid for from an educational 
+standpoint, and the lackluster quality materials they receive. Often this information is 
+available for free around the internet. 
+</p>
+
+<p>
+Based on these frustrations, I decided the best thing to do would be to create a single place where people can turn to for education. I also wanted to maintain the philosophy that I use with the community group. There is no owner to this website, it belongs to everyone. The code for this website is freely available, anyone can make modifications. In addition significant portions of the website are designed for the community to work together to build the collective knowledge.
+</p>
+
+<p>
+I look forward to seeing what we can build together as a community. A special thanks to the people below, as I couldn't have done it without them.
+</p>
+
+<p>
+-TinyJ
+</p>
+
+<br>
+
+<legend>Contributors</legend>
+
+<div class="row">
+        <% LOOP_COUNTER = 1 %>
+	<% FOREACH person IN people %>
+
+		<div class="col-md-3">
+			<% PROCESS person %>
+		</div>
+		<% IF LOOP_COUNTER % 4 == 0 %>
+			</div>
+			<div class="row">
+		<% END %>
+        	<% LOOP_COUNTER = LOOP_COUNTER + 1 %>
+        <% END %>
+</div>

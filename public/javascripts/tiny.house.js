@@ -252,8 +252,10 @@ $(document).ready(function() {
         {
 		var map;
 
+		// Get an object to center the map on
 		var minneapolis = new google.maps.LatLng(44.970697, -93.2618534);
 
+		// Make the map object
 		map = new google.maps.Map(document.getElementById('map-canvas'), {
 			center: minneapolis,
 			zoom: 11,
@@ -265,33 +267,34 @@ $(document).ready(function() {
 			overviewMapControl:true 
 		});
 
-		layer = new google.maps.FusionTablesLayer({
-			query: {
-				select: '\'Geocodable address\'',
-				from: '17p9tskvyeMz_CRuqr8zaBE6M5aVYGgg5dTiXA7A'
-			},
-			styles: updateStyles($('#square-feet').val())
+		// Load up the geo json
+		map.data.loadGeoJson('http://tiny.house:3000/kml/Tiny.House.json');
+
+		// Style the map
+		map.data.setStyle(function(feature) {
+			return updateStyles(feature);
 		});
 
-		layer.setMap(map);	
-
+		// Handle resizing the map when the window is resized
 		google.maps.event.addDomListener(window, "resize", function() {
 		  var center = map.getCenter();
 		  google.maps.event.trigger(map, "resize");
 		  map.setCenter(center);
 		});
 
+		// Handle resizing the map when the map tab is clicked
 		$("a[href='#map']").on('shown.bs.tab', function(){
 		  google.maps.event.trigger(map, 'resize');
 		});
 
+		// The html element where you specify what size you want your tiny house to be
 		tinyDiv = $('#square-feet-control');
 		tinyDiv.removeClass('hidden');
 
 		// Need to give the dom object to the map, not the jquery object, hence [0]
 		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(tinyDiv[0]);
 
-
+		// The element for searching for places
 		var searchCustomControl = $('#search-control-container');
 		searchCustomControl.removeClass('hidden');
 
@@ -318,11 +321,11 @@ $(document).ready(function() {
 		var square_feet = $('#square-feet');
 
 		google.maps.event.addDomListener(square_feet[0], 'change', function() {
-			layer.setOptions({
-				styles: updateStyles($('#square-feet').val())
+			map.data.setStyle(function(feature) {
+				return updateStyles(feature);
 			});
 		});
-	}
+	};
 
 	$('.table > tbody > tr').click(function() {
 		// row was clicked
@@ -332,31 +335,29 @@ $(document).ready(function() {
 	});
 });
 
-function updateStyles(division) {
-	console.log("size: " + division);
-	var fillStyles = [{
-		where: "'Size' = -1",
-		polygonOptions: {
-			fillColor: "#B5BAB6",
-			strokeColor: "#666666",
-			strokeWeight: 1
-		}
-	}, {
-		where: "'Size' >= 0 and 'Size' <= " + division,
-		polygonOptions: {
-			fillColor: "#29e529",
-			strokeColor: "#666666",
-			strokeWeight: 1
-		}
-	}, {
-		where: "'Size' > " + division,
-		polygonOptions: {
-			fillColor: "#E52929",
-			strokeColor: "#666666",
-			strokeWeight: 1
-		}
-	}];
+function updateStyles(feature) {
+	var specifiedSize = $('#square-feet').val();
+	var featureSize = feature.getProperty('size');
 
-	console.log(fillStyles);
-	return fillStyles;
+	var fill;
+	var stroke;
+ 
+	if (featureSize == -1) {
+		fill = "#B5BAB6";
+		stroke = "#666666";
+	}
+	else if (specifiedSize < featureSize) {
+		fill = "#E52929";
+		stroke = "#666666";
+	}
+	else {
+		fill = "#29e529";
+		stroke = "#666666";
+	}
+
+	return ({
+		fillColor: fill,
+		strokeColor: stroke,
+		strokeWeight: 1,
+	});
 }

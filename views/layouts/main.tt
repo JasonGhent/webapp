@@ -14,6 +14,7 @@
 
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="<% request.base %>css/bootstrapValidator.min.css" rel="stylesheet">
 		<link href="<% request.base %>css/tiny.house.css" rel="stylesheet">
 	</head>
@@ -21,7 +22,7 @@
 		<div class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="/"><span class="logo glyphicon glyphicon-home"></span>Tiny.House</a>
+					<a class="navbar-brand" href="/"><span class="logo fa fa-home"></span>Tiny.House</a>
 				</div>
 				<div class="navbar-collapse collapse navbar-responsive-collapse">
 					<ul class="nav navbar-nav">
@@ -31,12 +32,13 @@
 							<ul class="dropdown-menu">
 								<% PROCESS nav_item href="/resources/house" name="House" %>
 								<% PROCESS nav_item href="/resources/land" name="Land" %>
+								<% PROCESS nav_item href="/resources/faq" name="FAQ" %>
 								<% PROCESS nav_item href="/resources/finances" name="Finances" %>
 								<% PROCESS nav_item href="/resources/stuff" name="Stuff" %>
 							</ul>
 						</li>
 
-						<% PROCESS nav_item href="/About" name="About" %>
+						<% PROCESS nav_item href="/about" name="About" %>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<% if session.user_id %>

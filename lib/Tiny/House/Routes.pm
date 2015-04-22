@@ -16,7 +16,11 @@ get '/' => sub {
 	template 'index' => {alert => {success => params->{'alertSuccess'}, message => params->{'alertMessage'}}};
 };
 
-post '/check_email_address' => sub {
+get '/about' => sub {
+	template 'about' => {alert => {success => params->{'alertSuccess'}, message => params->{'alertMessage'}}};
+};
+
+get '/check_email_address' => sub {
 	my $valid = database->quick_count('users', {email => params->{'email'}}) ? JSON::false : JSON::true; 
 
 	return to_json {'valid' => $valid}
@@ -63,7 +67,7 @@ post '/register' => sub {
 			From => 'noreply@tiny.house',
 			To => params->{'email'},
 			Subject => 'Tiny.House - Confirm your email address',
-			Data => 'To confirm your email address please visit <a href="' . $link . '">' . $link . '</a>',
+			Data => 'To confirm your email address and set a password please visit <a href="' . $link . '">' . $link . '</a>',
 			Type    => 'text/html',
 		);
 

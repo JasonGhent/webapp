@@ -42,7 +42,7 @@
     <strong>Notes</strong>
   </div>
   <div class="col-lg-4">
-    <% place.place | html %>
+    <% place.notes | html %>
   </div>
 </div>
 

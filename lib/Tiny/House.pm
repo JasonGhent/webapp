@@ -7,6 +7,7 @@ use Dancer::Plugin::Passphrase;
 use Tiny::House::Routes;
 use Tiny::House::Users::Routes;
 use Tiny::House::Resources::Land::Routes;
+use Tiny::House::Resources::FAQ::Routes;
 
 use Data::Entropy::Algorithms qw/rand_bits/;
 use JSON;

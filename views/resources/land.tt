@@ -36,6 +36,7 @@
         </div>
         <div class="tab-pane fade" id="list">
           <% process review %>
+
           <% current_state = '' %>
           <% FOREACH place IN places %>
             <% IF current_state != place.state %>

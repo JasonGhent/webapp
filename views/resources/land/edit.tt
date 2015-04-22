@@ -59,8 +59,25 @@
     </div>
 
     <div class="form-group">
+      <label for="inputNotes" class="col-lg-2 control-label">Notes</label>
+      <div class="col-lg-10">
+          <textarea class="form-control span10" rows="10" id="notes" name="notes"><% IF place.defined('notes') %><% place.notes | html %><% END %></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputFiles" class="col-lg-2 control-label">Files</label>
+      <div class="col-lg-10">
+          <input type="file" class="form-control" id="inputFiles" name="upload_file"> 
+      </div>
+    </div>
+
+    <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button class="btn btn-primary" type="submit">Save</button>
+	<% if session.manage_places %>
+          <button class="btn btn-success" name="button" value="approved" type="submit">Publish</button>
+	<% end %>
+        <button class="btn btn-primary" name="button" value="save" type="submit">Save</button>
       </div>
     </div>
 
