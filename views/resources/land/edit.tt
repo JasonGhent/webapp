@@ -13,7 +13,7 @@
     <div class="form-group">
       <label for="inputPlace" class="col-lg-2 control-label">Place</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputPlace" name="place" placeholder="Place"<% IF place.defined('place') %> value="<% place.place | html %>"<% END %>>
+        <input type="text" class="form-control" id="inputPlace" name="place" placeholder="Place"<% IF place.place %> value="<% place.place | html %>"<% END %>>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
       <label for="inputADU" class="col-lg-2 control-label">ADU</label>
       <div class="col-lg-10">
         <div class="input-group">
-          <input type="text" class="form-control" id="inputADU" name="adu" placeholder="ADU"<% IF place.defined('adu_minimum_square_feet') %> value="<% place.adu_minimum_square_feet | html %>"<% END %>>
+          <input type="text" class="form-control" id="inputADU" name="adu_minimum_square_feet" placeholder="ADU"<% IF place.adu_minimum_square_feet %> value="<% place.adu_minimum_square_feet | html %>"<% END %>>
           <span class="input-group-addon">sqft</span>
         </div>
       </div>
@@ -42,7 +42,7 @@
       <label for="inputFoundation" class="col-lg-2 control-label">Foundation</label>
       <div class="col-lg-10">
         <div class="input-group">
-          <input type="text" class="form-control" id="inputFoundation" name="foundation" placeholder="Foundation"<% IF place.defined('foundation_minimum_square_feet') %> value="<% place.foundation_minimum_square_feet | html %>"<% END %>>
+          <input type="text" class="form-control" id="inputFoundation" name="foundation_minimum_square_feet" placeholder="Foundation"<% IF place.foundation_minimum_square_feet %> value="<% place.foundation_minimum_square_feet | html %>"<% END %>>
           <span class="input-group-addon">sqft</span>
         </div>
       </div>
@@ -52,7 +52,7 @@
       <label for="inputMobile" class="col-lg-2 control-label">Mobile</label>
       <div class="col-lg-10">
         <div class="input-group">
-          <input type="text" class="form-control" id="inputMobile" name="mobile" placeholder="Mobile"<% IF place.defined('trailer_minimum_square_feet') %> value="<% place.trailer_minimum_square_feet | html %>"<% END %>>
+          <input type="text" class="form-control" id="inputMobile" name="rv_minimum_square_feet" placeholder="Mobile"<% IF place.rv_minimum_square_feet %> value="<% place.rv_minimum_square_feet | html %>"<% END %>>
           <span class="input-group-addon">sqft</span>
         </div>
       </div>
@@ -61,14 +61,7 @@
     <div class="form-group">
       <label for="inputNotes" class="col-lg-2 control-label">Notes</label>
       <div class="col-lg-10">
-          <textarea class="form-control span10" rows="10" id="notes" name="notes"><% IF place.defined('notes') %><% place.notes | html %><% END %></textarea>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="inputFiles" class="col-lg-2 control-label">Files</label>
-      <div class="col-lg-10">
-          <input type="file" class="form-control" id="inputFiles" name="upload_file"> 
+          <textarea class="form-control span10" rows="10" id="notes" name="notes"><% IF place.notes %><% place.notes | html %><% END %></textarea>
       </div>
     </div>
 

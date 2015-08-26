@@ -1,21 +1,8 @@
 -- tables
--- Table: files
-CREATE TABLE files (
-    id serial  NOT NULL,
-    place_id int NOT NULL,
-    created_by int  NOT NULL,
-    moderated_by int,
-    revision timestamp NOT NULL default now(),
-    name text  NOT NULL,
-    file_path text  NOT NULL,
-    status text NOT NULL
-);
 
 -- Table: places
 CREATE TABLE places (
     id serial  NOT NULL,
-    created_by int  NOT NULL,
-    moderated_by int,
     kml text  NOT NULL,
     place text  NOT NULL,
     revision timestamp NOT NULL default now(),
@@ -23,8 +10,7 @@ CREATE TABLE places (
     country text,
     foundation_minimum_square_feet int,
     adu_minimum_square_feet int,
-    trailer_minimum_square_feet int,
-    status text NOT NULL default 'review',
+    rv_minimum_square_feet int,
     notes text
 );
 

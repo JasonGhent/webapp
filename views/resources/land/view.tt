@@ -6,7 +6,7 @@
     <strong>Place</strong>
   </div>
   <div class="col-lg-4">
-    <% place.place | html %><% IF place.defined('state') %>, <% place.state | html %><% END %><% IF place.defined('country') %>, <% place.country | html %><% END %>
+    <% place.place | html %><% IF place.state %>, <% place.state | html %><% END %><% IF place.country %>, <% place.country | html %><% END %>
   </div>
 </div>
 
@@ -15,7 +15,7 @@
     <strong>ADU</strong>
   </div>
   <div class="col-lg-4">
-    <% IF place.defined('adu_minimum_square_feet') %><% place.adu_minimum_square_feet | html %> sqft<% END %>
+    <% IF place.adu_minimum_square_feet %><% place.adu_minimum_square_feet | html %> sqft<% END %>
   </div>
 </div>
 
@@ -24,7 +24,7 @@
     <strong>Foundation</strong>
   </div>
   <div class="col-lg-4">
-    <% IF place.defined('foundation_minimum_square_feet') %><% place.foundation_minimum_square_feet | html %> sqft<% END %>
+    <% IF place.foundation_minimum_square_feet %><% place.foundation_minimum_square_feet | html %> sqft<% END %>
   </div>
 </div>
 
@@ -33,7 +33,7 @@
     <strong>Mobile</strong>
   </div>
   <div class="col-lg-4">
-    <% IF place.defined('trailer_minimum_square_feet') %><% place.trailer_minimum_square_feet | html %> sqft<% END %>
+    <% IF place.trailer_minimum_square_feet %><% place.trailer_minimum_square_feet | html %> sqft<% END %>
   </div>
 </div>
 
@@ -45,16 +45,6 @@
     <% place.notes | html %>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-lg-2 text-right">
-    <strong>Files</strong>
-  </div>
-  <div class="col-lg-4">
-    <% place.place | html %>
-  </div>
-</div>
-
 
 <div class="row">
   <div class="col-lg-4 col-lg-offset-2">

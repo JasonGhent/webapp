@@ -1,22 +1,3 @@
-<% BLOCK badge %>
-  <% if session.manage_places and awaiting_review >= 1 %>
-    <span class="badge <% if awaiting_review < 6 %>alert-warning<% elsif awaiting_review >= 6 %>alert-danger<% end %>">
-    <% awaiting_review %>
-    </span>
-  <% end %>
-<% END %>
-
-<% block review %>
-  <% if session.manage_places and awaiting_review >= 1 %>
-    <h2>Awaiting Review</h2>
-      <ul class="list-group">
-        <% foreach place in places_awaiting_review %>
-              <li class="list-group-item"><a href="<% request.uri_base %>/resources/land/review/<% place.id %>"><% place.place | html %><% if place.state %>, <% place.state %><% end %></a></li>
-        <% end %>
-      </ul>
-  <% end %>
-<% end %>
-
 <legend>Land</legend>
 
 <div class="container fill">
@@ -24,7 +5,7 @@
     <div class="col-lg-12">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#map" data-toggle="tab">Map</a></li>
-        <li><a href="#list" data-toggle="tab">List<% process badge %></a></li>
+        <li><a href="#list" data-toggle="tab">List</a></li>
       </ul>
 
       <div id="tabContent" class="tab-content">
@@ -35,8 +16,6 @@
           </div>
         </div>
         <div class="tab-pane fade" id="list">
-          <% process review %>
-
           <% current_state = '' %>
           <% FOREACH place IN places %>
             <% IF current_state != place.state %>
