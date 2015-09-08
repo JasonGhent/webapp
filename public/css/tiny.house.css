@@ -1,5 +1,27 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 45px;
+}
+
 .logo {
 	margin-right: 5px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 45px;
+  background-color: #e7e7e7;
+}
+
+.footer-text {
+	margin: 12px 0;
 }
 
 .map {
@@ -26,6 +48,10 @@
 }
 
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-  background-color: #CCCCCC;
-  color:#333333;
+	background-color: #CCCCCC;
+	color:#333333;
+}
+
+.contributor img {
+	width: 230px;
 }
