@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="tinyHouseApp">
+        <head>
+                <title>Tiny.House</title>
+
+                <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+                <link href="http://netdna.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css" rel="stylesheet">
+                <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+                <link href="css/tiny.house.css" rel="stylesheet">
+
+		<base href="/">
+        </head>
+        <body ng-controller="aboutController">
+                <div class="navbar navbar-default">
+                        <div class="container">
+                                <div class="navbar-header">
+                                        <a class="navbar-brand" href="/"><span class="logo fa fa-home"></span>Tiny.House</a>
+                                </div>
+                                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                                        <ul class="nav navbar-nav">
+                                                <li><a href="#/about">About</a></li>
+                                                <li><a href="#/news">News</a></li>
+                                                <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+                                                        <ul class="dropdown-menu">
+                                                                <li><a href="#/resources/house">House</a></li>
+                                                                <li><a href="#/resources/land">Land</a></li>
+                                                                <li><a href="#/resources/faq">FAQ</a></li>
+                                                                <li><a href="#/resources/finances">Finances</a></li>
+                                                                <li><a href="#/resources/stuff">Stuff</a></li>
+                                                        </ul>
+                                                </li>
+                                        </ul>
+                                        <ul class="nav navbar-nav navbar-right">
+                                                <li><a href="#/contact">Contact</a></li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+
+                <div class="container">
+			<div ng-view></div>
+                </div>
+
+                <footer class="footer">
+                        <div class="container">
+                                <p class="footer-text">
+                                        <a href="/">Tiny.House</a> uses <a href="/#about">CC BY-NC-SA</a> and <a href="/#about">AGPL</a> for licensing.
+                                </p>
+                        </div>
+                </footer>
+
+                <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+                <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+                <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+                <script src="js/script.js"></script>
+        </body>
+</html>
+
