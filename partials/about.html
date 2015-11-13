@@ -1,33 +1,33 @@
 <legend>About</legend>
 
 <p>
-<a href="http://tiny.house">Tiny.House</a> came about from a desire to provide accurate education 
-to the community while maintaining the tiny philosophy. There are numerous websites out there both 
-big and small that attempt to do this today, but I find the commercialism, and the willingness of 
-these folks to sell you something, un-tiny. Nothing feels farther from the movement then a 
-website with fourteen advertisements down the side, products that they where compensated to review, 
-or trying to sell you something freely available. Being actively involved in my 
-local tiny house community I often hear about different things people have paid for from an educational 
-standpoint, and the lackluster quality of the materials they receive. Often this information is 
-available for free around the internet. 
+	<a href="http://tiny.house">Tiny.House</a> came about from a desire to provide accurate education 
+	to the community while maintaining the tiny philosophy. There are numerous websites out there both 
+	big and small that attempt to do this today, but I find the commercialism, and the willingness of 
+	these folks to sell you something, un-tiny. Nothing feels farther from the movement then a 
+	website with fourteen advertisements down the side, products that they where compensated to review, 
+	or trying to sell you something freely available. Being actively involved in my 
+	local tiny house community I often hear about different things people have paid for from an educational 
+	standpoint, and the lackluster quality of the materials they receive. Often this information is 
+	available for free around the internet. 
 </p>
 
 <p>
-Based on these frustrations, I decided the best thing to do would be to create a single place 
-for people to educated themself. I also wanted to maintain the philosophy that I use with my 
-tiny house community group. There is no owner to this website, it belongs to everyone. The code for this 
-website is freely available, anyone can make modifications. All content is protected by the 
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a> license and all 
-software is protected by the <a href="http://opensource.org/licenses/AGPL-3.0">AGPL</a> license.
+	Based on these frustrations, I decided the best thing to do would be to create a single place 
+	for people to educated themself. I also wanted to maintain the philosophy that I use with my 
+	tiny house community group. There is no owner to this website, it belongs to everyone. The code for this 
+	website is freely available, anyone can make modifications. All content is protected by the 
+	<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a> license and all 
+	software is protected by the <a href="http://opensource.org/licenses/AGPL-3.0">AGPL</a> license.
 </p>
 
 <p>
-I look forward to seeing what we can build together as a community. A special thanks to the people 
-below, as I couldn't have done it without them.
+	I look forward to seeing what we can build together as a community. A special thanks to the people 
+	below, as I couldn't have done it without them.
 </p>
 
 <p>
--TinyJ
+	-TinyJ
 </p>
 
 <br>
@@ -35,32 +35,33 @@ below, as I couldn't have done it without them.
 <legend>Contributors</legend>
 
 <div class="row">
-  <div class="col-md-3" ng-repeat="person in people">
-    <div class="panel panel-default">
-      <div class="panel-body text-center contributor">
-        <img src="{{person.image}}">
-      </div>
-      <div class="panel-footer">
-        {{person.name}} {{$index + 1}}
-        <div class="pull-right">
-            <a href="mailto:{{person.email}}" ng-if="person.email">
-              <span class="fa fa-envelope-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Email"></span>
-            </a>
-            <a href="{{person.meetup}}" ng-if="person.meetup">
-              <span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Meetup.com profile"></span>
-            </a>
-            <a href="{{person.facebook}}" ng-if="person.facebook">
-              <span class="fa fa-facebook" data-toggle="tooltip" data-placement="right" title="" data-original-title="facebook.com profile"></span>
-            </a>
-            <a href="{{person.twitter}}" ng-if="person.twitter">
-              <span class="fa fa-twitter" data-toggle="tooltip" data-placement="right" title="" data-original-title="twitter.com profile"></span>
-            </a>
-            <a href="{{person.github}}" ng-if="person.github">
-              <span class="fa fa-github" data-toggle="tooltip" data-placement="right" title="" data-original-title="Github.com profile"></span>
-            </a>
-        </div>
-      </div>
-    </div>
-  </div ng-if="($index + 1) % 4 == 0">
-  <div class="col-md-3" ng-if="($index + 1) % 4 == 0">
+	<div class="col-md-3" ng-repeat="person in people">
+		<div class="panel panel-default">
+			<div class="panel-body text-center contributor">
+				<img src="{{person.image}}">
+			</div>
+			<div class="panel-footer">
+				{{person.name}}
+				<div class="pull-right">
+					<a href="mailto:{{person.email}}" ng-if="person.email">
+						<span class="fa fa-envelope-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Email"></span>
+					</a>
+					<a href="{{person.meetup}}" ng-if="person.meetup">
+						<span class="fa fa-calendar-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Meetup.com profile"></span>
+					</a>
+					<a href="{{person.facebook}}" ng-if="person.facebook">
+						<span class="fa fa-facebook" data-toggle="tooltip" data-placement="right" title="" data-original-title="facebook.com profile"></span>
+					</a>
+					<a href="{{person.twitter}}" ng-if="person.twitter">
+						<span class="fa fa-twitter" data-toggle="tooltip" data-placement="right" title="" data-original-title="twitter.com profile"></span>
+					</a>
+					<a href="{{person.github}}" ng-if="person.github">
+						<span class="fa fa-github" data-toggle="tooltip" data-placement="right" title="" data-original-title="Github.com profile"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div ng-if="($index + 1) % 4 == 0">
+	<div class="col-md-3" ng-if="($index + 1) % 4 == 0">
+	</div>
 </div>
