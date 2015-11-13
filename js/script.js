@@ -23,7 +23,7 @@ tinyHouseApp.config(function($routeProvider, $locationProvider) {
 });
 
 tinyHouseApp.controller('aboutController', function($scope, $http) {
-  $http.get('json/people.json').success(function(data) {
+  $http.get('data/people.json').success(function(data) {
     $scope.people = data;
   });
 });

@@ -1,0 +1,26 @@
+{
+  "name": "tiny.house",
+  "homepage": "https://github.com/TinyHouse/webapp",
+  "description": "Tiny.House website",
+  "main": "",
+  "moduleType": [],
+  "license": "AGPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.7",
+    "angular": "angularjs#~1.4.7",
+    "bootstrap": "~3.3.5",
+    "bootswatch": "~3.3.5+4",
+    "font-awesome": "~4.4.0"
+  },
+  "authors": [
+    "Joel"
+  ]
+}
