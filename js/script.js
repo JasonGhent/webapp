@@ -10,6 +10,10 @@ tinyHouseApp.config(function($routeProvider, $locationProvider) {
       templateUrl : 'partials/contact.html',
       controller  : 'contactController'
     })
+    .when('/faq', {
+      templateUrl : 'partials/faq.html',
+      controller  : 'newsController'
+    })
     .when('/news', {
       templateUrl : 'partials/news.html',
       controller  : 'newsController'
