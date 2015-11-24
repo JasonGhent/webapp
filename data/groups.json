@@ -1,0 +1,822 @@
+[
+{
+  "country": "USA",
+  "state": "NC",
+  "city": "Asheville",
+  "url": "http://www.meetup.com/AshevilleTinyHomeAssociation/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "GA",
+  "city": "Atlanta",
+  "url": "http://www.meetup.com/Atlanta-Tiny-Homes-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 667,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "GA",
+  "city": "Atlanta",
+  "url": "http://www.meetup.com/Athens-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 45,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TX",
+  "city": "Austin",
+  "url": "http://www.meetup.com/Austin-Tiny-House-Co-Housing-Building-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 815,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TX",
+  "city": "Austin",
+  "url": "http://www.meetup.com/WimberleyTinyHomeVillage/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 58,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TX",
+  "city": "Austin",
+  "url": "http://www.meetup.com/Austin-Tiny-House-Community/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 51,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Bakersfield",
+  "url": "http://www.meetup.com/Bakersfield-Tiny-Homes-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "OR",
+  "city": "Bend",
+  "url": "http://www.meetup.com/Tiny-House-Skoolie-Enthusiasts-of-Central-Oregon/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Berkeley",
+  "url": "http://www.meetup.com/Tiny-Home-Village-Project-Richmond-Working-Group/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "ID",
+  "city": "Boise",
+  "url": "http://www.meetup.com/Idaho-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 507,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "ID",
+  "city": "Boise",
+  "url": "http://www.meetup.com/Idaho-Tiny-House-Building-Tiny-Houses-for-the-Homeless/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 387,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "MA",
+  "city": "Boston",
+  "url": "http://www.meetup.com/GreaterBostonTinyHouseEnthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 67,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "MA",
+  "city": "Boston",
+  "url": "http://www.meetup.com/Somerville-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 71,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "SC",
+  "city": "Charleston",
+  "url": "http://www.meetup.com/Tiny-Home-Enthusiasts-South-Carolina/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NC",
+  "city": "Charlotte",
+  "url": "http://www.meetup.com/Tiny-Homes-Together/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "IL",
+  "city": "Chicago",
+  "url": "http://www.meetup.com/Tiny-House-Chicagoland/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "NZ",
+  "state": "CAN",
+  "city": "Christchurch",
+  "url": "http://www.meetup.com/Big-Ideas-on-Innovative-Tiny-Houses-Christchurch/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "OH",
+  "city": "Cleveland",
+  "url": "http://www.meetup.com/Greater-Cleveland-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CO",
+  "city": "Colorado Springs",
+  "url": "http://www.meetup.com/Colorado-Springs-Tiny-House-and-Renewable-Energy-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TX",
+  "city": "Dallas",
+  "url": "http://www.meetup.com/DFW-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NS",
+  "city": "Dartmouth",
+  "url": "http://www.meetup.com/Tiny-House-Movement-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "OH",
+  "city": "Dayton",
+  "url": "http://www.meetup.com/Dayton-Tiny-House-Community/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CO",
+  "city": "Denver",
+  "url": "http://www.meetup.com/Tiny-House-Enthusiasts-Denver/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CO",
+  "city": "Durango",
+  "url": "http://www.meetup.com/Durango-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "CA",
+  "state": "AB",
+  "city": "Edmonton",
+  "url": "http://www.meetup.com/Edmonton-The-Tiny-House-Movement-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "IA",
+  "city": "Fairfield",
+  "url": "http://www.meetup.com/Fairfield-Tiny-House-and-Co-Housing-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "MA",
+  "city": "Falmouth",
+  "url": "http://www.meetup.com/Tiny-Homes-Land-Highway-and-Sea/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "FL",
+  "city": "Orlando",
+  "url": "http://www.meetup.com/Central-Florida-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "FL",
+  "city": "Fort Lauderdale",
+  "url": "http://www.meetup.com/South-Florida-Tiny-Home-Movement/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "FL",
+  "city": "Fort Myers",
+  "url": "http://www.meetup.com/Fort-Myers-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NC",
+  "city": "Greensboro",
+  "url": "http://www.meetup.com/Camp-Tiny-House-of-the-Triad-NC/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CT",
+  "city": "Hartford",
+  "url": "http://www.meetup.com/CT-MA-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TX",
+  "city": "Houston",
+  "url": "http://www.meetup.com/Tiny-House-Enthusiasts-Houston/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 353,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TX",
+  "city": "Houston",
+  "url": "http://www.meetup.com/Houston-Tiny-Houses-Meetup-14260384SuSVTWhE/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 49,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "ID",
+  "city": "Boise",
+  "url": "http://www.meetup.com/Idaho-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "MS",
+  "city": "Jackson",
+  "url": "http://www.meetup.com/Jackson-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "HI",
+  "city": "Kauai",
+  "url": "http://www.meetup.com/Tiny-House-Ohana-Princeville-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TN",
+  "city": "Knoxville",
+  "url": "http://www.meetup.com/East-Tennessee-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "AR",
+  "city": "Little Rock",
+  "url": "http://www.meetup.com/Central-AR-Tiny-House-Community-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Los Angeles",
+  "url": "http://www.meetup.com/Thousand-Oaks-Tiny-House-Enthusiasts/events/214479532/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NV",
+  "city": "Los Vegas",
+  "url": "http://www.meetup.com/Las-Vegas-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "ME",
+  "city": "Topsham",
+  "url": "http://www.meetup.com/Starting-A-Tiny-House-Village-in-Southern-Maine/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NH",
+  "city": "Manchester",
+  "url": "http://www.meetup.com/Green-and-White-Mountains-Tiny-House-Builders/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "MA",
+  "city": "Martha's Vineyard",
+  "url": "http://www.meetup.com/Marthas-Vineyard-Tiny-House-possibilities/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "AUS",
+  "state": "VIC",
+  "city": "Melbourne",
+  "url": "http://www.meetup.com/Melbourne-Tiny-Home-Movement-Collective/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "FL",
+  "city": "Miama",
+  "url": "http://www.meetup.com/Miami-Tiny-House-Community/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "MN",
+  "city": "Minneapolis",
+  "url": "http://www.meetup.com/Tiny-House-Mpls-Saint-Paul/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "CA",
+  "state": "QC",
+  "city": "Montreal",
+  "url": "http://www.meetup.com/Montreals-Tiny-House-Movement/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Napa",
+  "url": "http://www.meetup.com/Tiny-houses/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 252,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Napa",
+  "url": "http://www.meetup.com/Napa-Tiny-Houses-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 29,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NH",
+  "city": "Portsmouth",
+  "url": "http://www.meetup.com/TinyHomesofNewEngland/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NY",
+  "city": "New York",
+  "url": "http://www.meetup.com/NYC-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "VA",
+  "city": "Norfolk",
+  "url": "http://www.meetup.com/Tiny-Living-Movement-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Oakland",
+  "url": "http://www.meetup.com/tinyhousebuildeastbay/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 842,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Oakland",
+  "url": "http://www.meetup.com/Tiny-Houses-from-Shipping-Containers-Hayward/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 55,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "UT",
+  "city": "Ogden",
+  "url": "http://www.meetup.com/Utah-Tiny-Houses-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Orange",
+  "url": "http://www.meetup.com/OC-Tiny-Homes-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "FL",
+  "city": "Orlando",
+  "url": "http://www.meetup.com/Florida-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "PA",
+  "city": "Philadelphia",
+  "url": "http://www.meetup.com/Center-City-Tiny-House-and-Co-housing-Community-Development/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "OR",
+  "city": "Portland",
+  "url": "http://www.meetup.com/tinypdx/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 394,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "OR",
+  "city": "Portland",
+  "url": "http://www.meetup.com/Tiny-House-Community-Startup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 363,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "RI",
+  "city": "Providence",
+  "url": "http://www.meetup.com/Tiny-Houses-RI/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NC",
+  "city": "Raleigh",
+  "url": "http://www.meetup.com/Triangle-Tiny-House/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "VA",
+  "city": "Richmond",
+  "url": "http://www.meetup.com/RVA-Tiny-House-Team-Richmond-Meetup-Group/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 347,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "VA",
+  "city": "Richmond",
+  "url": "http://www.meetup.com/Charlottesville-Tiny-House-Group/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 48,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "Sacramento",
+  "url": "http://www.meetup.com/Living-Simply-in-Sactown-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "SK",
+  "city": "Saskatoon",
+  "url": "http://www.meetup.com/Saskatoon-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "WA",
+  "city": "Seattle",
+  "url": "http://www.meetup.com/tinyhouse/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 720,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "WA",
+  "city": "Seattle",
+  "url": "http://www.meetup.com/Western-Washington-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 561,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "WA",
+  "city": "Seattle",
+  "url": "http://www.meetup.com/Tiny-house-living-Kitsap-and-Olympic-Peninsula-Western-Was/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 92,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "San Diego",
+  "url": "http://www.meetup.com/Tiny-Home-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "CA",
+  "city": "San Francisco",
+  "url": "http://www.meetup.com/Tiny-House-Bay-Area/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "IN",
+  "city": "South Bend",
+  "url": "http://www.meetup.com/Michiana-Tiny-House-Enthusiasts/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NY",
+  "city": "Syracuse",
+  "url": "http://www.meetup.com/Fingerlakes-Tiny-Houses-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "ME",
+  "city": "Topsham",
+  "url": "http://www.meetup.com/Starting-A-Tiny-House-Village-in-Southern-Maine/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "CA",
+  "state": "ON",
+  "city": "Toronto",
+  "url": "http://www.meetup.com/Hamilton-Tiny-Houses-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 88,
+  "cost": 0
+},
+{
+  "country": "CA",
+  "state": "ON",
+  "city": "Toronto",
+  "url": "http://www.meetup.com/The-Joy-of-Compact-Living/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 50,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "NJ",
+  "city": "Trenton",
+  "url": "http://www.meetup.com/Tiny-Houses-and-ADUs-in-NJ-PA/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "CA",
+  "state": "BC",
+  "city": "Vancouver",
+  "url": "http://www.meetup.com/Vancouver-Tiny-House-Meetup/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 554,
+  "cost": 0
+},
+{
+  "country": "CA",
+  "state": "BC",
+  "city": "Vancouver",
+  "url": "http://www.meetup.com/Tiny-Home-Co-Housing-British-Columbia/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 57,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "DC",
+  "city": "Washington",
+  "url": "http://www.meetup.com/Tiny-House-Enthusiasts-DC/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+},
+{
+  "country": "USA",
+  "state": "TX",
+  "city": "Wimberley",
+  "url": "http://www.meetup.com/WimberleyTinyHomeVillage/",
+  "meetup": 1,
+  "facebook": 0,
+  "members": 0,
+  "cost": 0
+}
+]

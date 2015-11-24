@@ -11,7 +11,7 @@
 
 		<base href="/">
         </head>
-        <body ng-controller="aboutController">
+        <body>
                 <div class="navbar navbar-default">
                         <div class="container">
                                 <div class="navbar-header">
@@ -24,6 +24,7 @@
                                                 <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
                                                         <ul class="dropdown-menu">
+                                                                <li><a href="resources/community">Community</a></li>
                                                                 <li><a href="resources/house">House</a></li>
                                                                 <li><a href="resources/land">Land</a></li>
                                                                 <li><a href="resources/finances">Finances</a></li>
@@ -54,9 +55,12 @@
                 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="/bower_components/angular/angular.min.js"></script>
-		<script src="/bower_components/angular-route/angular-route.min.js"></script>
-                <script src="/js/script.js"></script>
+		<script src="/bower_components/angular/angular.js"></script>
+		<script src="/bower_components/angular-route/angular-route.js"></script>
+		<script src="/bower_components/angular-filter/dist/angular-filter.min.js"></script>
+                <script src="/js/tinyhouse.js"></script>
+                <script src="/js/controllers.js"></script>
+                <script src="/js/directives.js"></script>
         </body>
 </html>
 

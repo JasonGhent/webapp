@@ -1,4 +1,5 @@
-var tinyHouseApp = angular.module('tinyHouseApp', ['ngRoute']);
+// Initialize angular
+var tinyHouseApp = angular.module('tinyHouseApp', ['ngRoute', 'angular.filter']);
 
 tinyHouseApp.config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -18,25 +19,14 @@ tinyHouseApp.config(function($routeProvider, $locationProvider) {
       templateUrl : 'partials/news.html',
       controller  : 'newsController'
     })
+    .when('/resources/community', {
+      templateUrl : 'partials/community.html',
+      controller  : 'communityController'
+    })
     .otherwise({
       redirectTo: '/about'
     });
 
   // use the HTML5 History API
   $locationProvider.html5Mode(true);
-});
-
-tinyHouseApp.controller('aboutController', function($scope, $http) {
-  $http.get('data/people.json').success(function(data) {
-    $scope.people = data;
-  });
-});
-
-tinyHouseApp.controller('contactController', function($scope) {
-  // create a message to display in our view
-});
-
-
-tinyHouseApp.controller('newsController', function($scope) {
-  // create a message to display in our view
 });

@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="page-header">
+		<h1 id="typography">Community</h1>
+	</div>
+</div>
+
+<div class="row">
+	<p>
+		Community is the single most important issue facing tine house enthusiasts today.
+		When people band together people can more easily learn not only about tiny houses
+		but work together to create the change that we need in todays climate to enable
+		the lifestyle many of us desire.
+	</p>
+
+	<p>
+		This page has two sections, the first seciton is a list of groups around the world
+		to help you find communtiy wherever you are. The second section contains hints and tips on
+		starting your own community group.
+	</p> 
+</div>
+
+<div class="row">
+	<div class="page-header">
+		<h1 id="typography">Groups</h1>
+	</div>
+</div>
+
+<div class="row">
+	<table class="table table-striped table-hover ">
+		<thead>
+			<tr>
+				<th>Country</th>
+				<th>State/Province</th>
+				<th>City</th>
+				<th>Members</th>
+				<th>Cost</th>
+				<th>Type</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="group in groups | orderBy: ['cost', usaToTheTop, 'state', 'city', '-members']">
+				<td>{{group.country}}</td>
+				<td>{{group.state}}</td>
+				<td>{{group.city}}</td>
+				<td>{{group.members}}</td>
+				<td>
+					<cost value="group.cost"></cost>
+				</td>
+				<td>
+					<span ng-if="group.meetup" class="fa fa-calendar-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Meetup.com group" tooltip></span>
+					<span ng-if="group.facebook" class="fa fa-facebook" data-toggle="tooltip" data-placement="right" title="" data-original-title="facebook.com profile" tooltip></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
