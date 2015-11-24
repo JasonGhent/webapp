@@ -20,6 +20,11 @@ tinyHouseApp.controller('communityController', function($scope, $http) {
       return group.country;
     }
   }
+
+  // Redirect hrefs
+  $scope.loadHref = function (url) {
+    location.href = url;
+  }
 });
 
 tinyHouseApp.controller('contactController', function($scope) {

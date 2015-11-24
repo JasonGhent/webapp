@@ -11,10 +11,10 @@ tinyHouseApp.directive('cost', function() {
 
 // Make tooltips work
 tinyHouseApp.directive('tooltip', function(){
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs){
-                $(element).tooltip();
-        }
-    };
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs){
+      $(element).tooltip();
+    }
+  };
 });

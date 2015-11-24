@@ -26,7 +26,7 @@
 </div>
 
 <div class="row">
-	<table class="table table-striped table-hover ">
+	<table class="table table-striped table-hover groups">
 		<thead>
 			<tr>
 				<th>Country</th>
@@ -39,16 +39,20 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="group in groups | orderBy: ['cost', usaToTheTop, 'state', 'city', '-members']">
-				<td>{{group.country}}</td>
-				<td>{{group.state}}</td>
-				<td>{{group.city}}</td>
-				<td>{{group.members}}</td>
+				<td class="left-pad"><a href="{{group.url}}">{{group.country}}</a></td>
+				<td><a href="{{group.url}}">{{group.state}}</a></td>
+				<td><a href="{{group.url}}">{{group.city}}</a></td>
+				<td><a href="{{group.url}}">{{group.members}}</a></td>
 				<td>
-					<cost value="group.cost"></cost>
+					<a href="{{group.url}}">
+						<cost value="group.cost"></cost>
+					</a>
 				</td>
 				<td>
-					<span ng-if="group.meetup" class="fa fa-calendar-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Meetup.com group" tooltip></span>
-					<span ng-if="group.facebook" class="fa fa-facebook" data-toggle="tooltip" data-placement="right" title="" data-original-title="facebook.com profile" tooltip></span>
+					<a href="{{group.url}}">
+						<span ng-if="group.meetup" class="fa fa-calendar-o" data-toggle="tooltip" data-placement="right" title="" data-original-title="Meetup.com group" tooltip></span>
+						<span ng-if="group.facebook" class="fa fa-facebook" data-toggle="tooltip" data-placement="right" title="" data-original-title="facebook.com profile" tooltip></span>
+					</a>
 				</td>
 			</tr>
 		</tbody>

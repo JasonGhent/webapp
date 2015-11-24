@@ -55,3 +55,18 @@ body {
 .contributor img {
 	width: 230px;
 }
+
+.groups tbody tr td a {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.groups tbody tr td {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.left-pad {
+	padding-left: 8px !important;
+}
